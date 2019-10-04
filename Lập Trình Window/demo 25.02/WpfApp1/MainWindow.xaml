@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Canvas Name="main">
+        <Button Width="90" Height="50"  Canvas.Left="367" Canvas.Top="59" >
+        </Button>
+
+        <Label Content="_Username:" Target="{Binding ElementName=usernameTextBox}" Canvas.Left="46" Canvas.Top="27"/>
+        <TextBox Name="usernameTextBox" Width="100" Height="25" Canvas.Left="117" Canvas.Top="28"/>
+        <Label Content="_Password:" Target="{Binding ElementName=passwordBox}" Canvas.Left="46" Canvas.Top="59"/>
+        <PasswordBox Name="passwordBox" Width="100" Height="25" Canvas.Left="117" Canvas.Top="60"/>
+
+        <ListView Name="studentsComboBox" Width="200" Height="70" Canvas.Left="514" Canvas.Top="27">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="{Binding ID}" FontWeight="Bold"/>
+                        <TextBlock Text=" : " />
+                        <TextBlock Text="{Binding Email}" FontSize="18" Foreground="Red"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            
+    </Canvas>
+</Window>
