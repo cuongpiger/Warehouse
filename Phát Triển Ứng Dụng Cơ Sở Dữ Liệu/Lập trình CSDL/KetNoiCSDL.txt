@@ -1,0 +1,2 @@
+http://o7planning.org/vi/10515/huong-dan-lam-viec-voi-database-sql-server-su-dung-csharp
+http://csharp-station.com/Tutorial/AdoDotNet/Lesson07
