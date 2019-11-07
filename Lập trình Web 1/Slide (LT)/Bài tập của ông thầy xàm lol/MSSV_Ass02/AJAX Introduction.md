@@ -54,6 +54,7 @@ _**Tóm lại, AJAX hoạt động đa nhiệm. Nếu bạn từng gặp trườ
    
 ###### _Tài liệu tham thảo_
 [https://www.w3schools.com/js/js_ajax_intro.asp](https://www.w3schools.com/js/js_ajax_intro.asp)
+
 [https://www.hostinger.vn/huong-dan/ajax-la-gi-va-no-hoat-dong-nhu-the-nao/#AJAX-la-gi](https://www.hostinger.vn/huong-dan/ajax-la-gi-va-no-hoat-dong-nhu-the-nao/#AJAX-la-gi)
 
 
