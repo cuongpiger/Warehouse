@@ -1,0 +1,29 @@
+div.container{
+    margin-top: 20px;
+}
+
+h1.title_header{
+    color: cornflowerblue;
+    font-size: 35px;
+}
+
+span{
+    color: orange;
+}
+
+label{
+    color: orange;
+}
+
+span.lb_textbox{
+    color: blue;
+}
+
+input[type=submit]{
+    margin-left: 150px;
+}
+
+a{
+    margin-left: 100px;
+}
+
