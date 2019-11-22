@@ -16,6 +16,20 @@
 ||Khi đã tồn tại một repo trên local và muốn theo dõi nó (lịch sử,...) thì cần phải tạo một init cho nó<br>**B1**. Vào thư mục cha chứa thư mục repo cần theo dõi<br>**B2**. Chuột phải chọn git bash here|git init|
 |Lệnh status|Dùng để kiểm tra trạng thái các file có trong repo<br>**B1**. Vào thư mục repo cần kiểm tra<br>**B2**. Chuột phải chọn git bash here|git status|
 |Đưa file về trạng thái staged|Vào thư mực repo<br>**git add -A**: stages all changes.<br>**git add .**: stages new files and modifications, without deletions.<br>**git add -u**: stages modifications and deletions, without new files.|1. git add .<br>2. git add -u<br>3. git add -A|
+|Commit|Xác nhận chính thức rằng lưu lại 1 bản sao sau khi được staged (git add)|1. git commit -m '"your's describe"'<br>2. git commit -a -m '"your describe"'|
+|Tạo local repository và push lên remote repository||1. git init<br>2. git add -A<br>3. git commit -m "first commit"<br>4. git remote add origin 'link to repo'<br>5. git push -u origin master|
+|Xem lịch sử những lần commit||1. git log<br>2. git log --oneline<br>(ấn q để thoát)|
+|Lệnh xem lịch sử n commit sau cùng||git log -3|
+|Lệnh reset|Cho phép đưa con trỏ **HEAD** về một commit cụ thể nào đó trước đây|1. git reset 'commit id'<br>2. git reset --hard 'commit id'|
+|Kiểm tra xem tại một commit id ta đã sửa đổi hay làm gì||git checkout 'commit id'|
+|Gộp file vào một commit trước đó||1. git add .<br>2. git status<br>3. git commit --amend<br>4. Chỉnh your describe<br>5. Ctrl + X => Y or N => Enter|
+|Đẩy lên web||git push|
+
+
+
+
+
+
 
 
 
