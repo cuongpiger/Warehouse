@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title -->
+        <h1 class="row justify-content-center align-self-center" style="margin-top: 50px; color: #443c44;">DANH SÁCH SẢN
+            PHẨM</h1>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success float-left" data-toggle="modal" data-target="#exampleModal"
+            style="margin-top: 50px;" onclick="prepareModal()">
+            Thêm sản phẩm mới
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel" style="color: #443c44;">Thêm sản phẩm</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label>
+                                    <h5 class="">Mã sản phẩm</h5>
+                                </label>
+                                <input type="text" class="form-control" id="iMaSanPham" name="nMaSanPham" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <h5 class="">Tên sản phẩm</h5>
+                                </label>
+                                <input type="text" class="form-control" id="iTenSanPham" name="nTenSanPham">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <h5 class="">Giá sản phẩm</h5>
+                                </label>
+                                <input type="number" min="500" max="999999999" class="form-control" id="iGiaSanPham"
+                                    name="nGiaSanPham">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="saveProductInfo()"
+                            data-dismiss="modal" id='iLuuThongTin'>Lưu thông tin</button>
+                        <button type="button" class="btn btn-primary" onclick="update()" id='iChinhSua'>Chỉnh sửa thông tin</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy thao tác</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div style="margin-top: 50px;">
+            <table class="table table-hover" style="width: 100%;">
+                <colgroup>
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 50%;">
+                    <col span="1" style="width: 20%;">
+                    <col span="1" style="width: 20%;">
+                </colgroup>
+                <thead>
+                    <!-- <tr>
+                        <td style="background-color: #777">10%</td>
+                        <td style="background-color: #aaa">50%</td>
+                        <td style="background-color: #777">20%</td>
+                        <td style="background-color: #777">20%</td>
+                    </tr> -->
+                    <tr>
+                        <th scope="col">
+                            <h5>#</h5>
+                        </th>
+                        <th scope="col">
+                            <h5>Tên sản phẩm</h5>
+                        </th>
+                        <th scope="col">
+                            <h5>Giá sản phẩm</h5>
+                        </th>
+                        <th scope="col">
+                            <h5>Thao tác</h5>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>0</th>
+                        <td class="cTenSanPham">Samsung Galaxy Note 8</td>
+                        <td class="cGiaSanPham">23.000.000 VND</td>
+                        <td>
+                            <button type="button" class="btn btn-primary edit" data-toggle="modal"
+                                data-target="#exampleModal" onclick="editProductModal()">Chỉnh sửa</button>
+                            <button type="button" class="btn btn-danger delete-row-tb">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td class="cTenSanPham">Apple Iphone XR</td>
+                        <td class="cGiaSanPham">32.000.000 VND</td>
+                        <td>
+                            <button type="button" class="btn btn-primary edit" data-toggle="modal"
+                                data-target="#exampleModal">Chỉnh sửa</button>
+                            <button type="button" class="btn btn-danger delete-row-tb">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td class="cTenSanPham">Huawei P30 Pro</td>
+                        <td class="cGiaSanPham">21.990.000 VND</td>
+                        <td>
+                            <button type="button" class="btn btn-primary edit" data-toggle="modal"
+                                data-target="#exampleModal">Chỉnh sửa</button>
+                            <button type="button" class="btn btn-danger delete-row-tb">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

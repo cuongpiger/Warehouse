@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.ajax({ url: "demo_3.js", dataType: "script" });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button>Use Ajax to get and then run a JavaScript</button>
+
+</body>
+
+</html>
