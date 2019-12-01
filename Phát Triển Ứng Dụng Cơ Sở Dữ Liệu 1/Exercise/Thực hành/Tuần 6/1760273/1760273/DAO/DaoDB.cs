@@ -10,7 +10,8 @@ namespace _1760273.DAO
 {
     public class DaoDB
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=LAPTOP-LN7FVV9Q\SQLEXPRESS;Initial Catalog=QLSV;Integrated Security=True");
+        //SqlConnection sqlConnection = new SqlConnection(@"Data Source=LAPTOP-LN7FVV9Q\SQLEXPRESS;Initial Catalog=QLSV;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-714MBD8\SQLEXPRESS;Initial Catalog=QLSV;Integrated Security=True");
 
         public void OpenConnection()
         {
@@ -47,19 +48,18 @@ namespace _1760273.DAO
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddRange(sqlParameters);
-            OpenConnection();
             
             try
             {
+                OpenConnection();
                 affRows = cmd.ExecuteNonQuery();
+                CloseConnection();
             }
             catch
             {
                 affRows = 0;
             }
-
-            CloseConnection();
-
+            
             return affRows;
         }
     }

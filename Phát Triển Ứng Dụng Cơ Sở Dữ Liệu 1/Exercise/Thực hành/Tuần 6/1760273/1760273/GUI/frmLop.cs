@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace _1760273.GUI
 {
-    public partial class frmSinhVien : Form
+    public partial class frmLop : Form
     {
-        public frmSinhVien()
+        public frmLop()
         {
             InitializeComponent();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            ButtonSuaClick();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -27,36 +32,30 @@ namespace _1760273.GUI
             ButtonXoaClick();
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            ButtonSuaClick();
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void frmSinhVien_Load(object sender, EventArgs e)
-        {
-            InitialCbPhai();
-            InitialCbClass();
-            RefreshListStudents();
-            SwitchNextPrevButton();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
             SwitchNextPrevButton();
             curRecord -= (btnPrev.Enabled == true ? 1 : 0);
-            ShowStudentInfo();
+            ShowClassInfo();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             SwitchNextPrevButton();
             curRecord += (btnNext.Enabled == true ? 1 : 0);
-            ShowStudentInfo();
+            ShowClassInfo();
+        }
+
+        private void frmLop_Load(object sender, EventArgs e)
+        {
+            InitialCbLoai();
+            RefreshListClasses();
+            SwitchNextPrevButton();
         }
     }
 }

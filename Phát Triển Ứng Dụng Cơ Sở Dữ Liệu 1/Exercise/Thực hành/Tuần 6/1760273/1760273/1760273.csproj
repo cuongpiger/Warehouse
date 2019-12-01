@@ -46,10 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BusClass.cs" />
     <Compile Include="BUS\BusStudent.cs" />
+    <Compile Include="DAO\DaoClass.cs" />
     <Compile Include="DAO\DaoDB.cs" />
     <Compile Include="DAO\DaoStudent.cs" />
+    <Compile Include="DTO\DtoClass.cs" />
     <Compile Include="DTO\DtoStudent.cs" />
+    <Compile Include="frmLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMotSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLop.Designer.cs">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,11 +86,14 @@
     <Compile Include="GUI\frmThemMotSinhVien.Designer.cs">
       <DependentUpon>frmThemMotSinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="PartialFrmThemMotSinhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmLop.resx">
+      <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </EmbeddedResource>

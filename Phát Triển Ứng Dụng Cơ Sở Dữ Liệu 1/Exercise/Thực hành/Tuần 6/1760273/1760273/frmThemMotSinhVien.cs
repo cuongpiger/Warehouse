@@ -35,7 +35,7 @@ namespace _1760273
         {
             DtoStudent stu = new DtoStudent();
 
-            stu.DTB = txbDiemTB.Text == "" ? -1:float.Parse(txbDiemTB.Text);
+            stu.DTB = txbDiemTB.Text == "" ? -1 : float.Parse(txbDiemTB.Text);
             stu.HoTen = txbHoTen.Text;
             stu.Lop = cbLop.SelectedValue.ToString();
             stu.NgaySinh = dtpNgaySinh.Value.ToString("yyyy-MM-dd");
@@ -44,11 +44,11 @@ namespace _1760273
 
             if (busStudent.InsertOneStudent(stu) == 1)
             {
-                MessageBox.Show("Insert successfully!");
+                MessageBox.Show("Thêm sinh viên mới thành công!");
             }
             else
             {
-                MessageBox.Show("Insert unsuccessfully!");
+                MessageBox.Show("Thêm sinh viên mới không thành công!");
             }
         }
     }

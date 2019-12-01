@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1760273.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace _1760273
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmThemMotSinhVien());
+            Application.Run(new frmMenu());
         }
     }
 }
