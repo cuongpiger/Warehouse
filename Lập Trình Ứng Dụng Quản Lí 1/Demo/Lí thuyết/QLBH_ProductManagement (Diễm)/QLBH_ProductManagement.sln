@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBH_ProductManagement", "QLBH_ProductManagement\QLBH_ProductManagement.csproj", "{3CFDEF13-679B-4C27-925B-A2AFC2EC3942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathProcess", "MathProcess\MathProcess.csproj", "{79F5DEAB-54D1-4EC8-86FC-0816706DCCBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CFDEF13-679B-4C27-925B-A2AFC2EC3942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFDEF13-679B-4C27-925B-A2AFC2EC3942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CFDEF13-679B-4C27-925B-A2AFC2EC3942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFDEF13-679B-4C27-925B-A2AFC2EC3942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79F5DEAB-54D1-4EC8-86FC-0816706DCCBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F5DEAB-54D1-4EC8-86FC-0816706DCCBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F5DEAB-54D1-4EC8-86FC-0816706DCCBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F5DEAB-54D1-4EC8-86FC-0816706DCCBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2E01544-9691-4898-B91F-47A8E253A7BE}
+	EndGlobalSection
+EndGlobal
