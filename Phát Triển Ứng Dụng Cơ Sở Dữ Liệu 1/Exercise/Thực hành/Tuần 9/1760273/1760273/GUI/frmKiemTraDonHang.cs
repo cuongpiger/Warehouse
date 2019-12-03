@@ -48,5 +48,10 @@ namespace _1760273
             dgvInvoiceDetail.DataSource = dtInvoicesDetails;
             LoadDgvInvoiceDetail();
         }
+
+        private void dgvInvoices_MouseUp(object sender, MouseEventArgs e)
+        {
+            dgvInvoices.CurrentCell = null;
+        }
     }
 }

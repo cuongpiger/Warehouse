@@ -86,6 +86,7 @@
             this.dgvInvoices.Size = new System.Drawing.Size(1028, 167);
             this.dgvInvoices.TabIndex = 4;
             this.dgvInvoices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInvoices_CellContentClick);
+            this.dgvInvoices.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvInvoices_MouseUp);
             // 
             // label3
             // 
