@@ -46,14 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="BUS\BusGoods.cs" />
+    <Compile Include="BUS\BusInvoice.cs" />
+    <Compile Include="DAO\DaoDB.cs" />
+    <Compile Include="DAO\DaoGoods.cs" />
+    <Compile Include="DAO\DaoInvoice.cs" />
+    <Compile Include="DTO\DtoGoods.cs" />
+    <Compile Include="DTO\DtoInvoice.cs" />
+    <Compile Include="GUI\frmKiemTraDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\frmKiemTraDonHang.Designer.cs">
+      <DependentUpon>frmKiemTraDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\parKiemtraDonHang.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmKiemTraDonHang.resx">
+      <DependentUpon>frmKiemTraDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,10 +89,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
