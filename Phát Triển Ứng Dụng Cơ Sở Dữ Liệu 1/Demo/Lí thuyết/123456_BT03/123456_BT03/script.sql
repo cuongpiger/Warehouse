@@ -1,0 +1,19 @@
+﻿CREATE PROCEDURE sp_XoaSanPham
+	@MaSP varchar(50)
+AS
+BEGIN
+	IF EXISTS(SELECT * FROM SanPham WHERE MaSP =  @MaSP)
+	BEGIN
+		DELETE SanPham WHERE MaSP =  @MaSP
+		RETURN 1
+	END
+	RETURN 0
+END
+GO 
+
+CREATE PROCEDURE sp_TimKiemSanPhamTheoTen
+	@ten nvarchar(50)
+AS
+BEGIN
+	SELECT * FROM SanPham WHERE TenSP LIKE CONCAT('%', @ten , '%')
+END
