@@ -46,5 +46,31 @@ as
 	select max(id) from Apartment 
 go
 
-exec sLoadCategoryApartment
+if OBJECT_ID('sDeleteApartment') is not null
+	drop proc sDeleteApartment
+go
+create proc sDeleteApartment @iID int
+as
+	delete from Apartment where ID = @iID
+go
+
+if OBJECT_ID('sUpdateApartment') is not null
+	drop proc sUpdateApartment
+go
+create proc sUpdateApartment @iID int, @iLoai int, @iDienTich float, @iTang int, @iKhoi int, @iChuNha int
+as
+	update Apartment
+	set CategoryID = @iLoai, Acreage = @iDienTich, FloorID = @iTang, BlockID = @iKhoi, HostID = @iChuNha
+	where ID = @iID
+go
+
+if OBJECT_ID('sLoadApartmentWithID') is not null
+	drop proc sLoadApartmentWithID
+go
+create proc sLoadApartmentWithID @iID int
+as
+	select * from Apartment where ID = @iID
+go
+
+exec sLoadApartmentWithID 1
 
