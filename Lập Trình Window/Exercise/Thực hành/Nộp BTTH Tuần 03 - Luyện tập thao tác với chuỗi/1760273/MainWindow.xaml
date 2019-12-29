@@ -1,0 +1,57 @@
+﻿<Window x:Class="_1760273.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1760273"
+        mc:Ignorable="d"
+        Title="Standard Calculator" Height="410" Width="550"
+        Icon="images\Shopping-18-512.png" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="txbInput" Height="50" Width="500" VerticalAlignment="Top" HorizontalAlignment="Center"
+                 Margin="0 50 0 0" BorderThickness="2" BorderBrush="Black"
+                 FontSize="35" Text="Click here to enter data!" FontStyle="Italic"
+                 PreviewMouseDown="TxbInput_PreviewMouseDown">
+        </TextBox>
+
+        <Button Name="btnPlus" Width="80" Height="50" VerticalAlignment="Center"
+                HorizontalAlignment="Left" Margin="50 0 0 0" Content="+" FontSize="30"
+                FontWeight="Bold" BorderBrush="Black" BorderThickness="2"
+                Click="BtnPlus_Click">
+        </Button>
+
+        <Button Name="btnExcept" Width="80" Height="50" VerticalAlignment="Center"
+                HorizontalAlignment="Left" Margin="170 0 0 0" Content="-" FontSize="30"
+                FontWeight="Bold" BorderBrush="Black" BorderThickness="2"
+                Click="BtnExcept_Click">
+        </Button>
+
+        <Button Name="btnMulti" Width="80" Height="50" VerticalAlignment="Center"
+                HorizontalAlignment="Right" Margin="0 0 170 0" Content="x" FontSize="30"
+                FontWeight="Bold" BorderBrush="Black" BorderThickness="2"
+                Click="BtnMulti_Click">
+        </Button>
+
+        <Button Name="btnDevide" Width="80" Height="50" VerticalAlignment="Center"
+                HorizontalAlignment="right" Margin="0 0 50 0" Content="/" FontSize="30"
+                FontWeight="Bold" BorderBrush="Black" BorderThickness="2"
+                Click="BtnDevide_Click">
+        </Button>
+
+        <Button Name="btnCalc" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                Height="70" Width="240" Margin="20 0 0 40" BorderBrush="Black" 
+                BorderThickness="2" Click="BtnCalc_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="images\Shopping-18-512.png" Height="60" Width="60"></Image>
+                <Label Content="Calculate" FontSize="35" FontWeight="Bold" FontFamily="Consolas" 
+                       Padding="0 10 0 0"></Label>
+            </StackPanel>
+        </Button>
+        <Border BorderBrush="Black" BorderThickness="2"  Width="240" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                 Margin="0 0 20 40">
+            <TextBlock Name="txtbRes" Background="LightGray"
+                 FontSize="35" FontWeight="Bold" FontFamily="Consolas"
+                 Padding="0 10 0 0" TextAlignment="Center"></TextBlock>
+        </Border>
+    </Grid>
+</Window>

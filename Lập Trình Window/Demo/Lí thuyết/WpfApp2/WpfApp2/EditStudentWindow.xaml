@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp2.EditStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Edit student's info" Height="275.53" Width="209.852">
+    <Canvas>
+        <Image Name="avatarImage" Width="100" Height="100" Canvas.Left="28" Canvas.Top="10"/>
+        <Label Content="_Fullname:" Target="{Binding ElementName=fullnameTextBox}" Canvas.Top="115"/>
+        <TextBox Name="fullnameTextBox" Width="100" Height="25" Canvas.Left="66" Canvas.Top="115"/>
+        <Label Content="_Credits:" Target="{Binding ElementName=creditsTextBox}" Canvas.Top="150"/>
+        <TextBox Name="creditsTextBox" Width="100" Height="25" Canvas.Left="66" Canvas.Top="150"/>
+        <Button Content="Save" IsDefault="True" Name="saveButton" Click="SaveButton_Click" Width="50" Height="25" Canvas.Left="28" Canvas.Top="194"/>
+        <Button Content="Cancel" IsCancel="True" Name="cancelButton" Click="CancelButton_Click" Width="50" Height="25" Canvas.Left="98" Canvas.Top="194"/>
+    </Canvas>
+</Window>

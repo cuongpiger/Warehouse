@@ -1,0 +1,14 @@
+F:\1760273\1760273\bin\Release\1760273.exe.config
+F:\1760273\1760273\bin\Release\1760273.exe
+F:\1760273\1760273\bin\Release\1760273.pdb
+F:\1760273\1760273\obj\Release\1760273.csprojResolveAssemblyReference.cache
+F:\1760273\1760273\obj\Release\MainWindow.g.cs
+F:\1760273\1760273\obj\Release\App.g.cs
+F:\1760273\1760273\obj\Release\1760273_MarkupCompile.cache
+F:\1760273\1760273\obj\Release\1760273_MarkupCompile.lref
+F:\1760273\1760273\obj\Release\MainWindow.baml
+F:\1760273\1760273\obj\Release\1760273.g.resources
+F:\1760273\1760273\obj\Release\_1760273.Properties.Resources.resources
+F:\1760273\1760273\obj\Release\1760273.csproj.GenerateResource.Cache
+F:\1760273\1760273\obj\Release\1760273.exe
+F:\1760273\1760273\obj\Release\1760273.pdb

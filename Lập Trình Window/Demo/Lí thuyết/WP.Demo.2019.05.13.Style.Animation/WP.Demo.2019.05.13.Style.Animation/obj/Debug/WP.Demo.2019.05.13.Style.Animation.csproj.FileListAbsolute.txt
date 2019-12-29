@@ -1,0 +1,17 @@
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\bin\Debug\WP.Demo.2019.05.13.Style.Animation.exe.config
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\bin\Debug\WP.Demo.2019.05.13.Style.Animation.exe
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\bin\Debug\WP.Demo.2019.05.13.Style.Animation.pdb
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\MainWindow.g.cs
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\OptionsWindow.g.cs
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\App.g.cs
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation_MarkupCompile.cache
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation_MarkupCompile.lref
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\MainWindow.baml
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\OptionsWindow.baml
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation.g.resources
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo._2019._05._13.Style.Animation.Properties.Resources.resources
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation.csproj.GenerateResource.cache
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation.csproj.CoreCompileInputs.cache
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation.exe
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation.pdb
+C:\Users\dev\source\repos\WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation\obj\Debug\WP.Demo.2019.05.13.Style.Animation_Content.g.cs

@@ -1,0 +1,66 @@
+﻿<Window x:Class="Bai_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bai_3"
+        mc:Ignorable="d"
+        Title="Project 03" Height="500" Width="500">
+    <Grid>
+        <TextBox x:Name="txbNumberA" Width="300" Height="50" VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Text="Enter the number A"
+                 TextAlignment="Left" FontSize="25"
+                 Padding="0, 5, 0, 0"
+                 FontStyle="Italic"
+                 Margin="0, 50, 0, 0"
+                 BorderBrush="Black" BorderThickness="3"
+                 PreviewMouseDown="TxbNumberA_PreviewMouseDown">
+        </TextBox>
+
+        <TextBox x:Name="txbNumberB" Width="300" Height="50" VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Text="Enter the number B"
+                 TextAlignment="Left" FontSize="25"
+                 Padding="0, 5, 0, 0"
+                 FontStyle="Italic"
+                 Margin="0, 120, 0, 0"
+                 BorderBrush="Black" BorderThickness="3"
+                 PreviewMouseDown="TxbNumberB_PreviewMouseDown">
+        </TextBox>
+
+        <TextBox x:Name="txbNumberC" Width="300" Height="50" VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Text="Enter the number C"
+                 TextAlignment="Left" FontSize="25"
+                 Padding="0, 5, 0, 0"
+                 FontStyle="Italic"
+                 Margin="0, 190, 0, 0"
+                 BorderBrush="Black" BorderThickness="3"
+                 PreviewMouseDown="TxbNumberC_PreviewMouseDown">
+        </TextBox>
+
+        <Button x:Name="btnCalc" Width="230" Height="80"
+                Background="Gray" BorderBrush="Black" BorderThickness="3"
+                Margin="0, 130, 0, 0" Click="BtnCalc_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Width="50" Height="50"
+                       Source="images/Account__accountant__finance__tax__calculator__business__audit-512.png"></Image>
+                <Label FontSize="30"
+                       FontWeight="Bold">Calculate</Label>
+            </StackPanel>
+        </Button>
+
+        <Label Width="300" Height="70" VerticalAlignment="Bottom"
+               HorizontalAlignment="Center" Margin="0,0,0,30" Background="LightSlateGray"
+               BorderBrush="Black" BorderThickness="3" VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center">
+            <TextBlock x:Name="txtbAnswer"
+                   Text="Your answer"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontSize="20">
+            </TextBlock>
+        </Label>
+    </Grid>
+</Window>

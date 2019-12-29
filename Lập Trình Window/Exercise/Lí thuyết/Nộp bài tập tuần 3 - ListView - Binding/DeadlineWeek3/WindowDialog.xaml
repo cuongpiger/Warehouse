@@ -1,0 +1,26 @@
+﻿<Window x:Class="DeadlineWeek3.WindowDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeadlineWeek3"
+        mc:Ignorable="d"
+        Title="Item's Information" Height="450" Width="400">
+    <StackPanel>
+        <Image x:Name="img2"
+               Height="250"
+               Width="auto"
+               VerticalAlignment="Top">
+        </Image>
+        <Label Height="150"
+               Width="auto"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center">
+            <TextBlock x:Name="txtb2" FontSize="25" 
+                                   TextWrapping="Wrap"
+                                   Foreground="Red"
+                                   FontWeight="ExtraLight">
+            </TextBlock>
+        </Label>
+    </StackPanel>
+</Window>

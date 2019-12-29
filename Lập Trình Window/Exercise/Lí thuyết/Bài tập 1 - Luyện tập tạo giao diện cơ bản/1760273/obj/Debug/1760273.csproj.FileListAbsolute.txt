@@ -1,0 +1,14 @@
+F:\1760273\1760273\bin\Debug\1760273.exe.config
+F:\1760273\1760273\bin\Debug\1760273.exe
+F:\1760273\1760273\bin\Debug\1760273.pdb
+F:\1760273\1760273\obj\Debug\1760273.csprojResolveAssemblyReference.cache
+F:\1760273\1760273\obj\Debug\MainWindow.g.cs
+F:\1760273\1760273\obj\Debug\App.g.cs
+F:\1760273\1760273\obj\Debug\1760273_MarkupCompile.cache
+F:\1760273\1760273\obj\Debug\1760273_MarkupCompile.lref
+F:\1760273\1760273\obj\Debug\MainWindow.baml
+F:\1760273\1760273\obj\Debug\1760273.g.resources
+F:\1760273\1760273\obj\Debug\_1760273.Properties.Resources.resources
+F:\1760273\1760273\obj\Debug\1760273.csproj.GenerateResource.Cache
+F:\1760273\1760273\obj\Debug\1760273.exe
+F:\1760273\1760273\obj\Debug\1760273.pdb

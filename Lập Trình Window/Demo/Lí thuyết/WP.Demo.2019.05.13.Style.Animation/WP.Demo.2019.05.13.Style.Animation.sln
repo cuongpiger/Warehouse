@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP.Demo.2019.05.13.Style.Animation", "WP.Demo.2019.05.13.Style.Animation\WP.Demo.2019.05.13.Style.Animation.csproj", "{8B82A974-2D33-4A20-9A55-77D21D9B4188}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MediaPlayerSetup", "MediaPlayerSetup\MediaPlayerSetup.vdproj", "{E476A406-D8F8-4C7D-BECF-52EF042C8302}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B82A974-2D33-4A20-9A55-77D21D9B4188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B82A974-2D33-4A20-9A55-77D21D9B4188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B82A974-2D33-4A20-9A55-77D21D9B4188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B82A974-2D33-4A20-9A55-77D21D9B4188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E476A406-D8F8-4C7D-BECF-52EF042C8302}.Debug|Any CPU.ActiveCfg = Debug
+		{E476A406-D8F8-4C7D-BECF-52EF042C8302}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CEEE788-6320-4C49-B045-891A0998EA25}
+	EndGlobalSection
+EndGlobal

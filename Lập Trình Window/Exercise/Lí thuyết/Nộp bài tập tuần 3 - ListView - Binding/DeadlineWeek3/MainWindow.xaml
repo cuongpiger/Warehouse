@@ -1,0 +1,29 @@
+﻿<Window x:Class="DeadlineWeek3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeadlineWeek3"
+        mc:Ignorable="d"
+        Title="Bài tập về nhà tuần 3" Height="auto" Width="auto">
+    <Grid>
+        <ListView x:Name="lsvMain" Background="Pink" 
+                  SelectionChanged="LsvMain_SelectionChanged">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <DockPanel>
+                        <Image x:Name="imgMain" Source="{Binding ImageData}" Width="250" Height="150"></Image>
+                        <Label VerticalContentAlignment="Center">
+                            <TextBlock x:Name="txtbMain" Padding="50,0,0,0"
+                                   FontSize="25" 
+                                   TextWrapping="Wrap"
+                                       Text="{Binding ContentData}"
+                                   Foreground="Red"
+                                   FontWeight="ExtraLight"></TextBlock>
+                        </Label>
+                    </DockPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

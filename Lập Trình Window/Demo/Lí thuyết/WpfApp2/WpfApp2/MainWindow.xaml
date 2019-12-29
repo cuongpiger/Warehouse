@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <ItemsControl Name="itemsControl">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>                
+                <DataTemplate>                    
+                    <Grid>
+                        <Button Click="Button_Click">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                                                    <ContentPresenter />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#1E87F0"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Menu item 1" Click="MenuItem1_Click"/>
+                                    <MenuItem Header="Menu item 2" Click="MenuItem2_Click"/>
+                                    <Separator />
+                                    <MenuItem Header="Menu item 3" Click="MenuItem3_Click"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                            <StackPanel Width="100" Height="100" Margin="5, 5, 5, 5">
+                                <Image Source="{Binding Avatar}" Width="50" Height="50" />
+                                <TextBlock Text="{Binding Fullname}" Margin="0, 0, 10, 0" />
+                                <ProgressBar Width="100" Height="10" Minimum="0" Maximum="180" 
+                                         Value="{Binding Credits}" Grid.Column="1"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </DataTemplate>                
+            </ItemsControl.ItemTemplate>            
+        </ItemsControl>
+    </Grid>
+</Window>

@@ -1,0 +1,86 @@
+﻿<Window x:Class="_1760273.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1760273"
+        mc:Ignorable="d"
+        Title="Standard Calculator" Height="410" Width="750"
+        Icon="images\Shopping-18-512.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="txbInput" Height="50" Width="500" VerticalAlignment="Top" HorizontalAlignment="Center"
+                 Margin="0 50 200 0" BorderThickness="2" BorderBrush="Black"
+                 FontSize="35" Text="Click here to enter data!" FontStyle="Italic"
+                 PreviewMouseDown="TxbInput_PreviewMouseDown">
+        </TextBox>
+
+        <Button Name="btnCalc" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                Height="70" Width="240" Margin="20 0 0 40" BorderBrush="Black" 
+                BorderThickness="2" Click="BtnCalc_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="images\Shopping-18-512.png" Height="60" Width="60"></Image>
+                <Label Content="Calculate" FontSize="35" FontWeight="Bold" FontFamily="Consolas" 
+                       Padding="0 10 0 0"></Label>
+            </StackPanel>
+        </Button>
+        <Border BorderBrush="Black" BorderThickness="2"  Width="240" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                 Margin="0 0 220 40">
+            <TextBlock Name="txtbRes" Background="LightGray"
+                 FontSize="35" FontWeight="Bold" FontFamily="Consolas"
+                 Padding="0 10 0 0" TextAlignment="Center"></TextBlock>
+        </Border>
+
+        <ListBox Name="lsbSaveData" Width="180" Height="200" VerticalAlignment="Top" HorizontalAlignment="Right"
+                 Margin="0 50 20 0" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" FontSize="20"></ListBox>
+
+        <Button Name="btnAdd" Width="80" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0 0 120 40" BorderBrush="Black" BorderThickness="2"
+                Click="BtnAdd_Click">
+            <Image Source="images\ajouter-png.png" Height="60" Width="60"></Image>
+        </Button>
+
+        <Button Name="btnDelete" Width="80" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0 0 20 40" BorderBrush="Black" BorderThickness="2"
+                Click="BtnDelete_Click">
+            <Image Source="images\Files-Delete-File-icon.png" Height="60" Width="60"></Image>
+        </Button>
+
+        <GroupBox Header="Operation" FontSize="24" FontWeight="Bold" Width="500"
+                  Height="130" VerticalAlignment="Center" HorizontalAlignment="Left"
+                  Margin="20 -10 0 0" BorderThickness="2" BorderBrush="Black">
+            <Grid>
+                <RadioButton Name="rbtnAdd" FontSize="20" HorizontalAlignment="Left"
+                             VerticalAlignment="Top" Margin="20 0 0 0"
+                             IsChecked="True" Height="50" Width="180" VerticalContentAlignment="Center">
+                    <RadioButton.Content >
+                        <Label Content="Addition" FontSize="20"></Label>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Name="rbtnSub" FontSize="20" HorizontalAlignment="Right"
+                             VerticalAlignment="Top" Margin="20 0 0 0"
+                             Height="50" Width="180" VerticalContentAlignment="Center">
+                    <RadioButton.Content >
+                        <Label Content="Substraction" FontSize="20"></Label>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Name="rbtnMul" FontSize="20" HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom" Margin="20 0 0 0"
+                             Height="50" Width="180" VerticalContentAlignment="Center">
+                    <RadioButton.Content >
+                        <Label Content="Multiplication" FontSize="20"></Label>
+                    </RadioButton.Content>
+                </RadioButton>
+
+                <RadioButton Name="rbtnDiv" FontSize="20" HorizontalAlignment="Right"
+                             VerticalAlignment="Bottom" Margin="20 0 0 0"
+                             Height="50" Width="180" VerticalContentAlignment="Center">
+                    <RadioButton.Content >
+                        <Label Content="Division" FontSize="20"></Label>
+                    </RadioButton.Content>
+                </RadioButton>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
