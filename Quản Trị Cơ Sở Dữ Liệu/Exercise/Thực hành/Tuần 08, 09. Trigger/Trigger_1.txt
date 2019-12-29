@@ -1,0 +1,10 @@
+1. Đọc giả phải có ít nhất một phiếu mượn sách
+2. Phiếu mượn sách phải có ít nhất một chi tiết
+3. Ngày trả phải lớn hơn ngày mượn
+4. CMND của đọc giả không được trùng
+5. Email của đọc giả không được trùng và phải chứa @
+6. Tình trạng của cuốn sách = "đang được mượn" nếu sách chưa được trả
+7. Tình trạng của cuốn sách = "có thể mượn" nếu sách đã được trả
+8. tienphat = mucgiaphat * (ngaytra – ngaymuon – songayquydinh)
+9. Sách trả phải là sách được mượn trong phiếu mượn tương ứng
+10. Mỗi phiếu trả có ít nhất một chi tiết
