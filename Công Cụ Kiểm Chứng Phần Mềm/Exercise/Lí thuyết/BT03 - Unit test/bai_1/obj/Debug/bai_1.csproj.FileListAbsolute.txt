@@ -1,0 +1,6 @@
+F:\1760273\bai_1\bin\Debug\bai_1.exe.config
+F:\1760273\bai_1\bin\Debug\bai_1.exe
+F:\1760273\bai_1\bin\Debug\bai_1.pdb
+F:\1760273\bai_1\obj\Debug\bai_1.csprojResolveAssemblyReference.cache
+F:\1760273\bai_1\obj\Debug\bai_1.exe
+F:\1760273\bai_1\obj\Debug\bai_1.pdb

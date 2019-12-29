@@ -1,0 +1,7 @@
+D:\1760273\bai_1\bin\Debug\bai_1.exe.config
+D:\1760273\bai_1\bin\Debug\bai_1.exe
+D:\1760273\bai_1\bin\Debug\bai_1.pdb
+D:\1760273\bai_1\obj\Debug\bai_1.csprojAssemblyReference.cache
+D:\1760273\bai_1\obj\Debug\bai_1.csproj.CoreCompileInputs.cache
+D:\1760273\bai_1\obj\Debug\bai_1.exe
+D:\1760273\bai_1\obj\Debug\bai_1.pdb

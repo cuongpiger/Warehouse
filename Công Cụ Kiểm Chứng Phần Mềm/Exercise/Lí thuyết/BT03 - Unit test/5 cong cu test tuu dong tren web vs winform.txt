@@ -1,0 +1,7 @@
+		Winfowm
+AutoIT: https://www.autoitscript.com/site/autoit/
+Sikulix: http://sikulix.com/
+		Web
+Unified Functional Testing (UFT): https://www.microfocus.com/es-es/products/unified-functional-automated-testing/overview
+Selenium: https://www.seleniumhq.org/
+Katalon Studio: https://www.katalon.com/

@@ -1,0 +1,77 @@
+﻿Release v0.1
+
+
+- Nhóm chức năng giới thiệu sản phẩm:
+
++ Menu loại sản phẩm
+
++ Hiển thị danh sách sản phẩm theo loại
+
+- Nhóm chức năng Tìm kiếm, Lọc sản phẩm
+
++ Tìm kiểm sản phẩm theo tên sản phẩm
+
++ Sắp xếp, Phân trang danh sách sản phẩm
+
++ Hiển thị thông tin chi tiết sản phẩm
+
+- Chức năng Gửi thông tin liên hệ
+
++ Gửi thông tin liên hệ có CAPTCHA
+
++ Hiển thị bản đồ
+
+- Chức năng Giỏ hàng
+
++ Thêm sản phẩm vào giỏ hàng
+
++ Xem giỏ hàng
+
++ Quản lý giỏ hàng (Xoá, cập nhật số lượng sản phẩm)
+
+
+
+Release v0.2
+
+
+- Chức năng Đăng ký người dùng
+
+- Chức năng Đăng nhập, Đăng xuất
+
+- Chức năng Quên mật khẩu
+
+- Chức năng Thay đổi mật khẩu
+
+- Chức năng Cập nhật thông tin cá nhân 
+
++ Cập nhật hình đại diện
+
++ Cập nhật địa chỉ giao hàng
+
+- Chức năng Đánh giá sản phẩm
+
+- Chức năng Nhận xét sản phẩm
+
+- Chức năng Đặt mua sản phẩm
+
+- Chức năng Theo dõi đơn hàng
+
+
+
+Release v0.3
+
+
+- Chức năng Hiển thị các sản phẩm vừa xem
+
+- Chức năng Quản lý sản phẩm (lọc, thêm, xoá, sửa)
+
+- Chức năng Quản lý đơn đặt hàng (lọc, cập nhật trạng thái đơn hàng, xoá)
+
+- Chức năng Quản lý thông tin tài khoản người dùng
+
+- Chức năng Thống kê doanh thu
+
+Tai khoan admin mac dinh:
+- Username: admin
+- Password: admin-123
+- Email: admin@admin.com
