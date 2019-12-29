@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.chineseBoard {
+    width: 500px;
+    height: 510px;
+    margin: 20px auto;
+}
+
+.bareBoard {
+    background-image: url(images/bareboard.jpg);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

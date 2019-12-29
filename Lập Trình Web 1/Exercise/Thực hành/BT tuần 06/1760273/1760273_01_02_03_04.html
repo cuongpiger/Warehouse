@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style01.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <form action="#" method="get" name="frmMain" onsubmit="return CheckSubmit()">
+            <table width="300" border="1" cellspacing="0" cellpadding="2" rules="groups" bordercolor="#0099ff">
+                <tr>
+                    <td colspan="4" class="tableHeader" id="idHeader">Login Form</td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="right"></td>
+                </tr>
+                <tr>
+                    <td width="81" align="right" id="idUserName">User name:</td>
+                    <td width="22">&nbsp;</td>
+                    <td width="129">
+                        <input type="text" name="txtUserName" id="txtUserName" class="normal"
+                            onfocus="HightLight(this, 1)" onblur="HightLight(this, 2)" onmouseover="HightLight(this, 3)"
+                            onmouseout="HightLight(this, 2)">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" id="idPassword">Password:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="password" name="txtPassword" id="txtPassword" class="normal"
+                            onfocus="HightLight(this, 1)" onblur="HightLight(this, 2)" onmouseover="HightLight(this, 3)" 
+                            onmouseout="HightLight(this, 2)">
+                    </td>
+                </tr>
+                <tr>
+                    <td align=" right" id="idLanguage">Language:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <select name="cmdLanguage" id="cmdLanguage" class="normal" onfocus="HightLight(this, 1)" onblur="HightLight(this, 2)" onmouseover="HightLight(this, 3)" 
+                        onmouseout="HightLight(this, 2)" onchange="ChangeLanguage()">
+                            <option selected="selected" id="idEng">English</option>
+                            <option id="idVN">Vietnamese</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <hr color="#0099ff" size="1">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <input type="submit" name="btnSubmit" id="btnSubmit" value="Login">
+                        <input type="reset" name="btnClose" id="btnClose" value="Close">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

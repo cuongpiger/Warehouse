@@ -1,0 +1,25 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #ffc0cb;
+}
+
+.container {
+  width: 1140px;
+  height: auto;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+table, th, td {
+  border: 1px solid red;
+  border-collapse: collapse;
+}

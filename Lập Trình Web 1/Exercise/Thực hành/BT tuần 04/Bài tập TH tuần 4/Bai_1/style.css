@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.chessBoard {
+    width: 640px;
+    height: 640px;
+    margin: 20px auto;
+    border: 25px solid #333;
+}
+
+.cell {
+    float: left;
+    width: 80px;
+    height: 80px;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.fillCell {
+    width: 100%;
+    height: auto;
+}
