@@ -1,0 +1,13 @@
+# Khai thác mẫu thường xuyên, kết hợp và tương quan: Những khái niệm và phương pháp cơ bản
+Hãy tưởng tượng rằng bạn là một manager tại một cửa hàng bán các sản phẩm điện tử. Hôm nay, bạn đang nói chuyện với một khách hàng mà gần đây, anh ta có mua một chiếc PC và một chiếc máy ảnh kĩ thuật số từ cửa hàng của bạn. Vậy hôm nay, bạn nên giới thiệu cho vị khách hàng đó những mặt hàng nào để anh ta tiếp tục móc hầu bao của mình ra để làm giàu cho cửa hàng bạn? Thông tin về những sản phẩm thường được các khách hàng trước đây mua sau khi họ mua PC và máy ảnh kĩ thuật số sẽ rất hữu ích trong việc giúp bạn đưa ra các gợi ý cho vị khách hàng hiện tại.
+
+Những **mẫu thường xuyên** và các **quy tắc kết hợp** là những kiến thức cần thiết sẽ giúp ích cho bạn rất nhiều trong một tình huống như vậy.
+
+## Mẫu thường xuyên (frequent pattern)
+Là những mẫu (ví dụ như các *itemset*, *subsequence*, *substructure* đều có thể gọi là những mẫu) mà nó xuất hiện thường xuyên trong dataset của bạn. Lấy ví dụ, trong dataset bán hàng của bạn, có các mặt hàng là *milk* và *bread*, chúng thường xuyên xuất hiện cùng nhau trong dữ liệu giao dịch của bạn, thì lúc này chúng được gọi là **frequent itemset**. Một ví dụ khác cho trường hợp *subsequence*, chẳng hạn như khách hàng của bạn mua chiếc PC trước, sau đó anh ta mới mua máy ảnh kĩ thuật số, rồi sau đó anh ta tiếp tục mua một cái thẻ nhớ, nếu như cái quá trình mua hàng này cứ lặp đi lặp lại, xuất hiện nhiền lần trong dataset của bạn thì đây được gọi là **(frequent) sequential pattern**. Lại thêm một ví dụ nữa cho trường hợp *substructure*, một *substructure* có thể là những hình thể cấu trúc khác nhau (này hơi lan man), chẳng hạn như là một cái biểu đồ con (subgraph), một cây con (subtree) hay là một phân lớp con (sublattice) nào đó mà khi ta kết hợp chúng với các *itemset* hay *subsequence*, nếu *substructure* này xuất hiện thường xuyên, khi đó ta gọi nó là **(frequent) structured pattern**.
+
+Việc tìm kiếm các **frequent pattern** đóng vai trò thiết yếu trong việc khai thác luật kết hợp, những mối tương quan hay giúp ta tìm được những mối quan hệ thú vị trong dataset của mình.
+
+Ngoài ra nó còn giúp ta phân loại dữ liệu (data classification), phân cụm (clustering) hay các công việc liên quan đến khai thác dữ liệu khác.
+
+Vậy nên, khai thác mẫu thường xuyên (**frequent pattern mining**) đã trở thành một công việc hết sức quan trọng trong khai thác dữ liệu (**data mining**) và là một chủ đề được đem ra nghiên cứu rất nhiều trong lĩnh vực này.
