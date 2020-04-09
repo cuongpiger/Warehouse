@@ -1,0 +1,6 @@
+Bread Cheese Juice
+Milk Bread Yogurt
+Bread Juice Milk
+Eggs Bread Cheese Juice
+Cheese Juice Milk
+
