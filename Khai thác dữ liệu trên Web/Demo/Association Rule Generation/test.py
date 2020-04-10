@@ -59,8 +59,9 @@ def candidateGen(Hm, m1):
     
     return list(set(tuple(i) for i in Hm1))
 
-def apGenRules(f, Hm, k, m, T, minconf, H, res):
+def apGenRules(f, Hm, k, m, T, minconf, res):
     if k > m + 1 and Hm != []:
+        rules = []
         Hm1 = candidateGen(list(map(lambda x: list(x), Hm)), m + 1)
         f_cnt = confCount(T, f)
         
@@ -68,38 +69,57 @@ def apGenRules(f, Hm, k, m, T, minconf, H, res):
             s_fk = non_intersecting(f, hm1)
             fk_cnt = confCount(T, s_fk)
             conf = f_cnt/fk_cnt*100.0
-            
+
+            # ở đây sẽ có 2 option, vì trường muốn xuất ra đầy đủ kết quả
+            # kết cả hợp lệ và ko hợp lệ
+
+            # option 1: xuất cả hợp lệ và ko hợp lệ
             r = {}
             r['x'] = s_fk
             r['y'] = hm1
             r['xy_cnt'] = f_cnt
             r['x_cnt'] = fk_cnt
             r['conf'] = conf
-            res.append(r)
-                
-            # if conf < minconf:
+            rules.append(r)
+
+            # # option 2: chỉ xuất kết quả hợp lệ, đồng thời optimize vùng nhớ
+            # # và tốc độ thư thi trong code
+            # if conf >= minconf:
+            #     r = {}
+            #     r['x'] = s_fk
+            #     r['y'] = hm1
+            #     r['xy_cnt'] = f_cnt
+            #     r['x_cnt'] = fk_cnt
+            #     r['conf'] = conf
+            #     rules.append(r)
+            # else:
             #     Hm1.remove(hm1)
         
-        H.append(Hm1)
-        apGenRules(f, Hm1, k, m + 1, T, minconf, H, res)
+        res.append([Hm1, rules, f])
+        apGenRules(f, Hm1, k, m + 1, T, minconf, res)
 
-def printResults(H, res):
-    for i in range(len(H)):
-        print('H{0}: {1}'.format(i + 1, H[i]))
-        print('-'*30)
-        
-    print('='*30)
-    
+def printResults(res):
+    noRule = 1
+    print('F = {0}'.format(res[0][2]))
+    print('='*20)
+
     for i in range(len(res)):
-        print('Rule{0}: {1} => {2} | {3}/{4} | conf = {5}'.format(i + 1, res[i]['x'], res[i]['y'], res[i]['xy_cnt'], res[i]['x_cnt'], res[i]['conf']))
-        print('-'*30)
+        print('H{0}: {1}'.format(i + 1, res[i][0]))
+        print('-'*20)
 
-    print('*'*30)
+        for rule in res[i][1]:
+            print('Rule{0}: {1} => {2} | conf = {3}/{4} = {5}'.format(noRule, rule['x'], rule['y'], rule['xy_cnt'], rule['x_cnt'], rule['conf']))
+            print('.'*20)
+            noRule += 1
+
+        print('_'*20)
+
+    print('*'*20)
 
 def genRules(T, F, minconf): # F là tập các frequent itemsets
     for f in F:
         H1 = []
-        H = []
+        rules1 = []
         res = []
 
         if len(f) > 1:
@@ -112,28 +132,46 @@ def genRules(T, F, minconf): # F là tập các frequent itemsets
                 xy_cnt = confCount(T, x + y)
                 x_cnt = confCount(T, x)
                 conf = xy_cnt/x_cnt*100.0
-                
-                if conf >= minconf:
-                    H1.append(y)
-                    r['x'] = x
-                    r['y'] = y
-                    r['xy_cnt'] = xy_cnt
-                    r['x_cnt'] = x_cnt
-                    r['conf'] = conf
-                    res.append(r)
+
+                # ở đây sẽ có 2 option, vì trường muốn xuất ra đầy đủ kết quả
+                # kết cả hợp lệ và ko hợp lệ
+
+                # option 1: xuất cả hợp lệ và ko hợp lệ
+                r['x'] = x
+                r['y'] = y
+                r['xy_cnt'] = xy_cnt
+                r['x_cnt'] = x_cnt
+                r['conf'] = conf
+                rules1.append(r)
+                H1.append(y)
+
+                # # option 2: chỉ xuất kết quả hợp lệ, đồng thời optimize vùng nhớ
+                # # và tốc độ thư thi trong code
+                # if conf >= minconf:
+                #     r['x'] = x
+                #     r['y'] = y
+                #     r['xy_cnt'] = xy_cnt
+                #     r['x_cnt'] = x_cnt
+                #     r['conf'] = conf
+                #     rules1.append(r)
+                #     H1.append(y)
                 
         H1 = list(set(tuple(i) for i in H1))
-        H.append(H1)
-        apGenRules(f, H1, len(f), 1, T, minconf, H, res)
-        printResults(H, res)
+        res.append([H1, rules1, f])
+        apGenRules(f, H1, len(f), 1, T, minconf, res)
+        printResults(res)
 
+# main
 T = returnDataset('data.txt')
-# F = [['Bread', 'Cheese'], 
-#      ['Bread', 'Juice'], 
-#      ['Bread', 'Milk'], 
-#      ['Cheese', 'Juice'], 
-#      ['Juice', 'Milk']]
+# F = [['Apple', 'Bread'], 
+#      ['Apple', 'Pie'], 
+#      ['Bread', 'Cheese'], 
+#      ['Bread', 'Crab'], 
+#      ['Bread', 'Milk'],
+#      ['Bread', 'Pie'], 
+#      ['Cheese', 'Milk']]
 
-F = [['Bread', 'Cheese', 'Juice']]
+F = [['Apple', 'Bread', 'Pie'],
+     ['Bread', 'Cheese', 'Milk']]
 
-genRules(T, F, 60.0)
+genRules(T, F, 80.0)
