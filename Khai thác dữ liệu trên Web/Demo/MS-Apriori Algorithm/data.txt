@@ -1,0 +1,15 @@
+7
+Beef Bread
+Bread Clothes
+Bread Clothes Milk
+Boots Cheese
+Beef Bread Cheese Shoes
+Beef Bread Cheese Milk
+Bread Clothes Milk
+Beef 25
+Boots 25
+Bread 70
+Cheese 25
+Clothes 25
+Milk 50
+Shoes 25
