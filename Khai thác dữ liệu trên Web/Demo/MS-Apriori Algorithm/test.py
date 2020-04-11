@@ -34,10 +34,7 @@ def countSupItems(T): # T là dataset
     
     for trans in T: # duyệt qua từng transaction trong dataset `T`
         for item in trans: # duyệt qua từng item trong một transaction
-            if item in supItems: # nếu đã tồn tại item này trong `supItems`
-                supItems[item] += 1
-            else:
-                supItems[item] = 1
+            supItems[tuple([item])] = supItems.get(tuple([item]), 0) + 1
                 
     return supItems
 
@@ -49,7 +46,7 @@ def genLstep2(M, supItems, n): # M là dict các key-value là item-MIS,
     
     # tìm item có supcount/n > mis của chính nó (tạm gọi supcount/n là supmis)
     for key in M.keys():
-        if supItems[key]/n*100.0 >= M[key]:
+        if supItems[tuple([key])]/n*100.0 >= M[key]:
             L.append(key)
             iKey = key
             break
@@ -59,7 +56,7 @@ def genLstep2(M, supItems, n): # M là dict các key-value là item-MIS,
         iKeyIndex = keys.index(iKey)
         
         for i in range(iKeyIndex + 1, len(keys)):
-            if supItems[keys[i]]/n*100.0 >= M[iKey]:
+            if supItems[tuple([keys[i]])]/n*100.0 >= M[iKey]:
                 L.append(keys[i])
                 
     return L
@@ -69,7 +66,7 @@ def genF1(L, M, supItems, n):
     F1 = []
     
     for l in L:
-        if supItems[l]/n*100.0 >= M[l]:
+        if supItems[tuple([l])]/n*100.0 >= M[l]:
             F1.append(l)
             
     return F1
@@ -78,9 +75,9 @@ def level2candidateGen(L, M, supItems, n, phi):
     C2 = []
     
     for i in range(len(L) - 1):
-        if supItems[L[i]]/n*100.0 >= M[L[i]]:
+        if supItems[tuple([L[i]])]/n*100.0 >= M[L[i]]:
             for j in range(i + 1, len(L)):
-                if supItems[L[j]]/n*100 >= M[L[j]] and fabs(supItems[L[j]] - supItems[L[i]])/n*100.0 <= phi:
+                if supItems[tuple([L[j]])]/n*100 >= M[L[i]] and fabs(supItems[tuple([L[j]])] - supItems[tuple([L[i]])])/n*100.0 <= phi:
                     C2.append([L[i], L[j]])
                     
     return C2
@@ -104,7 +101,7 @@ def msCandidateGen(M, Fkminus1, itemPos, supItems, n, k, phi):
         for j in range(i + 1, len(Fkminus1)):
             f1, f2 = Fkminus1[i], Fkminus1[j]
             
-            if f1[:-1] == f2[:-1] and itemPos[f1[-1]] < itemPos[f2[-1]] and fabs(supItems[f1[-1]] - supItems[f2[-1]])/n*100.0 <= phi:
+            if f1[:-1] == f2[:-1] and itemPos[f1[-1]] < itemPos[f2[-1]] and fabs(supItems[tuple([f1[-1]])] - supItems[tuple([f2[-1]])])/n*100.0 <= phi:
                 c = f1 + [f2[-1]]
                 c_subs = findSubsets(c, k - 1)
                 
@@ -118,6 +115,22 @@ def msCandidateGen(M, Fkminus1, itemPos, supItems, n, k, phi):
                     Ck.append(c)
                     
     return Ck
+
+# hàm kiểm tra một tập `s_sub` có phải là tập con của tập `s` hay ko
+def isSubset(s, s_sub):
+    return set(s_sub).issubset(set(s))
+
+def printResult(C, F, L):
+    print('Bảng L:')
+    print(L)
+    
+    print('\nBảng C:')
+    for i in range(2, len(C)):
+        print('C{0}: {1}'.format(i, C[i]))
+    
+    print('\nBảng F:')
+    for i in range(1, len(F)):
+        print('F{0}: {1}'.format(i, F[i]))
 
 # tạo ra L1
 def msApriori(M, T, phi): # M là dict các key-value là item-MIS, T là dataset
@@ -137,17 +150,36 @@ def msApriori(M, T, phi): # M là dict các key-value là item-MIS, T là datase
     C.append(L)
     F.append(F1)
     
-    while not F[k - 1]:
+    while F[k - 1]:
         if k == 2:
             C2 = level2candidateGen(L, M, supItems, len(T), phi)
             C.append(C2)
         else:
             Ck = msCandidateGen(M, F[k - 1], itemPos, supItems, len(T), k, phi)
-            print(Ck)
-    
+            C.append(Ck)
+
+        cCount = {}    
+        for t in T:
+            for c in C[k]:
+                if isSubset(t, c):
+                    cCount[tuple(c)] = cCount.get(tuple(c), 0) + 1
+                        
+                if isSubset(t, c[1:]):
+                    cCount[tuple(c[1:])] = cCount.get(tuple(c[1:]), 0) + 1
+                
+        Fk = []
+        for c in C[k]:
+            if tuple(c) in cCount and cCount[tuple(c)]/len(T)*100.0 >= M[c[0]]:
+                Fk.append(c)
+        
+        F.append(Fk)
+        k += 1
+        
+    printResult(C, F, L)
 
 def solve(file, phi):
     T, M = readData(file)
     msApriori(M, T, phi)
 
+# main
 solve('data.txt', 100.0)
