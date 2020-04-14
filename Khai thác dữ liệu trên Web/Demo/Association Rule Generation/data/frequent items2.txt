@@ -1,0 +1,10 @@
+F = [['Apple', 'Bread'],
+     ['Apple', 'Pie'],
+     ['Bread', 'Cheese'],
+     ['Bread', 'Crab'],
+     ['Bread', 'Milk'],
+     ['Bread', 'Pie'],
+     ['Cheese', 'Milk']]
+
+F = [['Apple', 'Bread', 'Pie'],
+     ['Bread', 'Cheese', 'Milk']]

@@ -1,0 +1,7 @@
+F = [['Beef', 'Chicken'],
+     ['Beef', 'Cheese'],
+     ['Chicken', 'Clothes'],
+     ['Chicken', 'Milk'],
+     ['Clothes', 'Milk']]
+
+F = [['Chicken', 'Clothes', 'Milk']]

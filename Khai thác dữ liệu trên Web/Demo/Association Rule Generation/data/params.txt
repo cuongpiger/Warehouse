@@ -1,0 +1,1 @@
+minsup = 40%, minconf = 60%
