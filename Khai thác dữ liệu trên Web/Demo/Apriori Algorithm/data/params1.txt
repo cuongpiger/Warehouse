@@ -1,0 +1,2 @@
+minsup = 30% ~ 3 dòng
+minconf = 80%
