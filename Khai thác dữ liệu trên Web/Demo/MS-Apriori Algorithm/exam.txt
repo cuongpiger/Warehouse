@@ -1,0 +1,17 @@
+5
+E K M N O Y
+D E K N O Y
+A E K M
+C K M U Y
+C E I K O
+A 60
+C 60
+D 60
+E 60
+I 20
+K 60
+M 100
+N 60
+O 80
+U 60
+Y 100 
