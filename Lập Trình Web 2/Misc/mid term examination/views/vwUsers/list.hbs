@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+        <h4>Users</h4>
+    </div>
+
+    {{#if this.empty}}
+    <div class="card-body">
+        <p class="card-text">Không có dữ liệu.</p>
+    </div>
+    {{else}}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Permisson</th>
+                <th scope="col">Refresh Token</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each this.users}}
+            <tr>
+                <th scope="row" class="text-center">{{ID}}</th>
+                <td>{{Username}}</td>
+                <td>{{Name}}</td>
+                <td>{{Email}}</td>
+                <td>{{DOB}}</td>
+                <td>{{Permission}}</td>
+                <td>{{RefToken}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{/if}}
+</div>
