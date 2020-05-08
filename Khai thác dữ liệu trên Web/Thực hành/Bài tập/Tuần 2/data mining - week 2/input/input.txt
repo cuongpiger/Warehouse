@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+	<!-- main header -->
+	<meta charset="utf-8">
+	
+				<title>SPOJ.com - Problem DIRVS</title>
+		  
+	<meta name="keywords" content="language, algorithm, spoj, contest, contester, Java, C#, Pascal, C, C++, python, ruby, caml, ocaml, perl, haskell, lisp, prolog, fortran, assembler, asembler, functional, online, judge, problem, problemset, ACM">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  		<meta property="og:title" content="SPOJ.com - Problem DIRVS"/>
+    <meta property="fb:app_id"      content="321676846207" />
+	<meta property="og:type" content="spoj-pl:problem"/>
+	<meta property="og:url" content="http://www.spoj.com/problems/DIRVS/"/>
+	<meta property="og:image" content="//stx1.spoj.com/gfx/logo-cr.png"/>
+	<meta property="og:description" content="..."/>
+	<meta name="description" content="..."/>
+		<meta property="og:site_name" content="spoj.com"/>
+
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="metatag">
+  <![endif]--> 
+
+	  <!-- Favicon -->
+	  <link href="//stx1.spoj.com/gfx/favicon_new.png" rel="shortcut icon" type="image/x-icon" />
+	  
+	  <!-- RSS -->
+	  <link href="/rss/" rel="alternate" type="application/rss+xml" title="RSS Feed">
+	
+	  <!-- Web Fonts -->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">  
+
+	<!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+	
+	
+	
+	<!-- CSS: Bootstrap, Font-awesome, Bootstrap libs,  -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="//stx1.spoj.com/gfx/bootstrap-tour/build/css/bootstrap-tour.min.css" rel="stylesheet" />
+  	<link href="//stx1.spoj.com/themes/bootstrap-social.css" rel="stylesheet" type="text/css" />
+  	
+	<link href="//stx1.spoj.com/themes/common.css?7" rel="stylesheet" type="text/css" id="theme0" />
+	<link href="//stx1.spoj.com/themes/en_new.css?7" rel="stylesheet" type="text/css" id="theme" />
+	
+	<!-- JS -->
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+	
+		
+		
+	<script type="text/javascript" language="javascript">
+	$(function () { 
+		$("#profile-menu").popover();
+	});
+	function UnCryptMailto(s) {
+		var n=0;
+		var r="";
+		for(var i=0;i<s.length;i++) {		
+			n=s.charCodeAt(i); 
+			if (n>=8364) {n = 128;}
+			r += String.fromCharCode(n+(2));	
+		}
+		return r;
+	}
+	function linkTo_UnCryptMailto(s)	{
+		location.href=UnCryptMailto(s);
+	}
+	</script>
+	
+	<script type="text/javascript">
+	function recordOutboundLink(link, category, action) {
+	  try {
+	    var pageTracker=_gat._getTracker("UA-XXXXX-X");
+	    pageTracker._trackEvent(category, action);
+	    setTimeout('document.location = "' + link.href + '"', 100)
+	  }catch(err){}
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	
+	<!-- <div class="space30"></div> -->
+	
+	<!-- Content -->
+	<div class="content">
+		<div class="container" id="header">
+			<div class="row">
+				<div class="col-md-12 text-right">
+										<form method="post" style="display: none;" action="/login/" id="login-form">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-2">
+								<input type="hidden" name="next_raw" value="/"/>
+								<input type="hidden" name="autologin" value="1"/>
+								<input type="text" name="login_user" placeholder="Username" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+								<input type="password" name="password" placeholder="Password" class="form-control input-sm" style="display: inline-block; width: 25%;"/>
+																<button type="submit" class="btn btn-default btn-sm" style="display: inline-block; margin-right: 10px;"><span class="fa fa-sign-in fa-lg"></span> <strong>sign in</strong></button>
+																<a href="/register"><i class="fa fa-user-plus"></i> sign up</a> 
+								<a href="/forgot"><i class="fa fa-question-circle"></i> forgot</a>
+				        									</div>
+						</div>
+					</form>
+										
+					
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/" class="navbar-brand">
+						<img src="//stx1.spoj.com/gfx/2015e.png" style="height: 40px;"/>
+					</a>
+					<div class="navbar-header">
+				      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <i class="fa fa-bars"></i>
+				      </button>
+				    </div>
+				</div>
+				<div class="col-md-8" id="menu">
+				
+					
+					<div class="row">
+					<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"  style="border: 0px;">
+				      <ul class="nav navbar-nav" style="  float: right; margin-top: 10px;">
+				      						        <li class="active">
+					          <a href="/problems"><i class="fa fa-puzzle-piece"></i> PROBLEMS</a>
+					        </li>
+					        					        <li >
+					          <a href="/status"><i class="fa fa-circle"></i> STATUS</a>
+					        </li>
+					        <li >
+					          <a href="/ranks"><i class="fa fa-trophy"></i> RANKS</a>
+					        </li>
+					        <li >
+					          <a href="http://spoj.com/forum"><i class="fa fa-comments-o"></i> DISCUSS</a>
+					        </li>
+					        <li >
+					          <a href="/contests">CONTESTS</a>
+					        </li>
+											        					        <li >
+					        	<a href="/login" class="text-success" onclick="$('#login-form').show(); $('input[name=login_user]').focus(); return false;"><i class="fa fa-sign-in"></i> sign in</a>
+					        </li>
+					        						
+				        
+				      </ul>
+				    </nav>
+				    </div>
+				    
+				    
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="container" id="menu">
+			
+		</div>
+		
+		<div class="container" id="content">
+		<script type='text/javascript' src='/gfx/jquery.cxhelp2.js'></script>
+
+
+
+ <!-- wykorzystywane w pcontent.html (by wiele) -->
+
+<div class="submenu">
+	
+		<ol class="breadcrumb">
+	  <li><a href="/problems">Problems</a></li>
+	  <li><a href="/problems/classical">classical</a></li>
+	  <li class="active">Direct Visibility</li>
+	</ol>
+		
+	<ol class="navbar-right">
+						
+				<li><a href="/status/DIRVS/" class="">Status</li></a>
+		<li><a href="/ranks/DIRVS/" class="">Ranking</li></a>
+	</ol>
+</div>
+
+
+	<script type="text/javascript">
+		var number_of_voteboxes = "";
+	</script>
+
+
+<div class="row first-row">
+	<div class="col-lg-8 col-md-8">
+		<div class="prob" style="position: relative">
+
+			<!-- google_ad_section_start -->
+			<!-- plik z pomoca kontekstowa (cxhelp_*) dziedziczony po pindex.html -->
+
+
+
+<script type="text/javascript" src="/gfx/jscripts/tiny_mce/plugins/asciimath/js/ASCIIMathMLwFallback.js"></script>
+<!--script type="text/javascript" src="/gfx/jscripts/tiny_mce/plugins/asciisvg/js/ASCIIsvgPI.js"></script-->
+<script type="text/javascript">
+<!--
+var AScgiloc = 'http://www.imathas.com/imathas/filter/graph/svgimg.php';
+var AMTcgiloc = "/files/gif/";
+-->
+</script>
+
+
+<div class="text-center"><center>
+	
+	</center>
+</div>
+<br/>
+
+<h2 id="problem-name" class="text-center">DIRVS - Direct Visibility</h2>
+
+
+<div class="row">
+	<div id="problem-tags" class="col-lg-12 text-center">
+				<i>no tags</i>&nbsp;
+				</div>
+</div>
+<br/>
+
+<div id="problem-body">
+	<P>
+Building the GSM network is a very expensive and complex task. Moreover,
+after the <EM>Base Transceiver Stations</em> (<EM>BTS</em>) are built and
+working, we need to perform many various measurements to determine the state
+of the network, and propose effective improvements to be made.
+
+
+<P>
+The ACM technicians have a special equipment for measuring the strength of
+electro-magnetic fields, the transceivers' power and quality of the signal.
+This equipment is packed into a huge knapsack and the technician must move
+with it from one BTS to another. Unfortunately, the knapsack have not enough
+memory for storing all of the measured values. It has a small cache only,
+that can store values for several seconds. Then the values must be
+transmitted to the BTS by an infrared connection (IRDA). The IRDA needs
+direct visibility between the technician and the BTS.
+
+<P>
+Your task is to find the path between two neighbouring BTSes such that at
+least one of those BTSes is always visible.
+
+<P>
+<H3>Input</h3>
+
+<P>
+There is a single positive integer <VAR>T</var> on the first line of input (equal to about 500). It stands
+for the number of test cases to follow. Each test case consists of a town
+description. For simplicity, a town is modelled as a rectangular grid of
+
+<VAR>P x Q</var> square fields. Each field is exactly 1 metre wide. For each
+field, a non-negative integer <VAR>Z</var><SUB><VAR>i</var>,<VAR>j</var></sub> is given, representing the height of
+the terrain in that place, in metres. That means the town model is made of
+cubes, each of them being either solid or empty. There are no "half solid"
+cubes.
+
+<P>
+The first line of each test case contains two integer numbers <VAR>P</var> and <VAR>Q</var>,
+separated by a single space, 
+1 <= <VAR>P</var>,<VAR>Q</var> <= 200. Then there are <VAR>P</var> lines
+each containing <VAR>Q</var> integer numbers separated by a space. These numbers are
+
+<VAR>Z</var><SUB><VAR>i</var>,<VAR>j</var></sub>, where 
+1 <= <VAR>i</var> <= <VAR>P</var>, 
+1 <= <VAR>j</var> <= <VAR>Q</var> and
+
+0 <= <VAR>Z</var><SUB><VAR>i</var>,<VAR>j</var></sub> <= 5000. After the terrain
+description, there are four numbers 
+
+<VAR>R</var><SUB>1</sub>, <VAR>C</var><SUB>1</sub>, <VAR>R</var><SUB>2</sub>, <VAR>C</var><SUB>2</sub> on the last line of
+each test case. These numbers represent position of two
+BTSes, 
+1 <= <VAR>R</var><SUB>1</sub>,<VAR>R</var><SUB>2</sub> <= <VAR>P</var>, 
+1 <= <VAR>C</var><SUB>1</sub>,<VAR>C</var><SUB>2</sub> <= <VAR>Q</var>. The first coordinate
+(<VAR>R</var>) determines the row of the town, the second coordinate determines the
+column.
+
+
+<P>
+The technician is moving in steps (<EM>steps</em> stands for
+<EM>Standard Technician's Elementary Positional Shift</em>). Each step is made
+between two neighbouring square fields. That means the step is always in
+North, South, West or East direction. It is not possible to move diagonally.
+The step between two fields <VAR>A</var> and <VAR>B</var> (step from <VAR>A</var> to <VAR>B</var>) is allowed
+only if the height of the terrain in the field <VAR>B</var> is not very different from
+the height in the field <VAR>A</var>. The technician can climb at most 1 metre up or
+descend at most 3 metres down in a single step.
+
+
+<P>
+At the end of each step, at least one of the two BTSes must be visible.
+However, there can be some point "in the middle of the step" where no BTS
+is visible. This is OK and the data is handled by the cache. The BTS is
+considered visible, if there is a direct visibility between the unit cube
+just above the terrain on the BTSes coordinates and the cube just above the
+terrain on the square field, where the technician is. Direct visibility
+between two cubes means that the line connecting the centres of the two cubes
+does not intersect any solid cube. However, the line can touch any number of
+solid cubes. In other words, consider both the BTS and the technician being
+points exactly half metre above the surface and in the centre of the
+appropriate square field.
+
+<P>
+Note that the IRDA beam can go between two cubes that touch each other by
+their edge, although there is no space between them. It is because such
+a beam touches both of these two cubes but does not intersect any of
+them. See the last test case of the sample input for an example of such
+a situation.
+
+<P>
+<H3>Output</h3>
+
+<P>
+You are to find the shortest possible path from BTS (<VAR>R</var><SUB>1</sub>, <VAR>C</var><SUB>1</sub>) to BTS (<VAR>R</var><SUB>2</sub>, <VAR>C</var><SUB>2</sub>), meeting the above criteria. All
+steps must be done between neighbouring fields, the terrain must not elevate
+or descend too much, and at the end of each step, at least one BTS must be
+visible.
+
+<P>
+For each test case, print one line containing the sentence
+<TT>The shortest path is </tt><VAR>M</var><TT> steps long.</tt>, where <VAR>M</var> is the number of
+steps that must be made. If there is no such path, output the sentence
+
+<TT>Mission impossible!</tt>.
+
+<h3>Example</h3>
+<p>Sample Input:</p>
+
+<PRE><tt>4
+5 5
+8 7 6 5 4
+2 2 2 2 2
+2 2 2 2 2
+2 2 2 2 2
+2 2 2 2 2
+1 1 5 1
+5 8
+2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 2
+9 9 9 9 9 9 9 2
+2 2 2 2 2 2 2 2
+1 2 5 1
+5 8
+2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 2
+2 2 2 2 2 2 2 2
+9 9 9 9 9 9 9 2
+2 2 2 2 2 2 2 2
+1 5 5 1
+6 12
+5 5 5 5 1 5 5 5 5 5 5 5
+5 5 5 5 1 5 5 5 5 5 5 5
+5 5 5 5 9 5 5 5 5 5 5 5
+5 9 1 5 5 5 5 5 5 5 5 5
+5 5 9 5 5 5 5 5 5 5 5 5
+5 5 9 5 5 5 5 5 5 5 5 5
+6 1 3 12
+</tt></pre>
+
+<p>Sample Output:</p>
+
+<PRE>
+<tt>The shortest path is 10 steps long.
+Mission impossible!
+The shortest path is 14 steps long.
+The shortest path is 18 steps long.
+</tt></pre>
+</div>
+
+<div class="text-center">
+	<a href="/submit/DIRVS/" class="btn btn-primary btn-lg"><i class="fa fa-send"></i> Submit solution!</a>
+</div>
+			<!-- google_ad_section_end -->
+			
+			<div id="ccontent">
+			<!-- google_ad_section_start -->
+			
+<hr style="clear:both;"/>
+<a href="#" onclick="toggleComments(); return false;"><span id="comments_sh">hide</span> comments</a><br/>
+
+<a id="comments"></a>
+<table id="comments_table" width="100%">
+		<tr>
+		<td colspan="2">
+		<ul class="pagination" style="">
+			<li class="disabled"><span>&lt;</span></li>
+		<li class="disabled"><span>Previous</span></li>
+						<li class="active"><span>1</span></li> 
+							<li><a href="/problems/DIRVS/cstart=10" class="pager_link">2</a></li> 
+						<li><a href="/problems/DIRVS/cstart=10" class="pager_link">Next</a></li>
+		<li><a href="/problems/DIRVS/cstart=10" class="pager_link">&gt;</a></li>
+	</ul>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+				</td>
+	</tr>
+	
+	<script language="JavaScript">
+	<!--
+	$(document).ready(function(){
+        $('.pager_link').bind('click', function(me){
+                var href=$(me.currentTarget).attr('href');
+		$('#ccontent').animate({opacity: 0.5},1);
+                $.ajax({
+                        type: "GET",
+                        url: href+",ajax=1",
+                        contentType: "application/x-www-form-urlencoded;charset=ISO-8859-2",
+                        success: function(data){
+                                $('#ccontent').html(data);
+				$('#ccontent').animate({opacity: 1.0},1);
+                        },
+                        error: function(err){
+                                alert('error');
+                        }
+                });
+                return false;
+        });
+	});
+	-->
+	</script>
+	
+
+
+
+			
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/9af429063968946a524ce3a831c2f71f?s=40&20150116"/>
+		</td>
+		<td class="comm comm_odd">
+			<a href="/users/mania_code9">MAYANK NARULA</a>: 
+								<span style="font-size: 10px; color: #666;">2019-12-31 05:51:05</span>
+		<br/>
+				<p>I think Brute force won't work with simple recursion and visibility check for line of sight intercept discontinuity</p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/82d017f2309da8de51b27b14d9212c7b?s=40&20150116"/>
+		</td>
+		<td class="comm comm_even">
+			<a href="/users/helloworld1101">helloworld1101</a>: 
+								<span style="font-size: 10px; color: #666;">2019-10-22 19:31:16</span>
+		<br/>
+				<p>If BTS is considered visible, does this mean any cube unit on the path between BTS and technician has the height smaller or equal to the smaller height of BTS and technician?</p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/422511f9deb7ab9d8fb269416e873e0e?s=40&20150116"/>
+		</td>
+		<td class="comm comm_odd">
+			<a href="/users/jigar_g_c123">jigar_g_c123</a>: 
+								<span style="font-size: 10px; color: #666;">2019-03-02 15:28:29</span>
+		<br/>
+				<p>Please give explain this question in Brif please please </p>
+				<b>Last edit: 2019-03-02 15:28:56</b>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/a4b218031acc1045e5c1c231ff50f1ce?s=40&20150116"/>
+		</td>
+		<td class="comm comm_even">
+			<a href="/users/doctordanger">kumar gaurav</a>: 
+								<span style="font-size: 10px; color: #666;">2015-10-06 10:53:34</span>
+		<br/>
+				<p>can we use cache for only one movement?
+<br/></p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/2ef587cc0d262255a25ac2c2ff45751e?s=40&20150116"/>
+		</td>
+		<td class="comm comm_odd">
+			<a href="/users/algorithmer96">Rafail Loizou</a>: 
+								<span style="font-size: 10px; color: #666;">2015-03-25 16:19:54</span>
+		<br/>
+				<p>still can not figure out how to test visibility
+<br/>do i need to make use of advanced computational geometry skills?
+<br/></p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/c3097016e89e044acb020bece922075c?s=40&20150116"/>
+		</td>
+		<td class="comm comm_even">
+			<a href="/users/donraj">Mayank Raj</a>: 
+								<span style="font-size: 10px; color: #666;">2013-09-01 21:21:57</span>
+		<br/>
+				<p>Dijkshtra getting timed out in java :'( 
+<br/>do i need to do a fib heap implementation??? 
+<br/></p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/a0d25790e99d38314b31d2322b81382e?s=40&20150116"/>
+		</td>
+		<td class="comm comm_odd">
+			<a href="/users/abhishek_1995">ABHISHEK</a>: 
+								<span style="font-size: 10px; color: #666;">2013-05-26 21:04:27</span>
+		<br/>
+				<p>how to check the condition if technician is directly visible from any of the two BTS?</p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/49ece98bdc3be46ee65d48d1d2a94df0?s=40&20150116"/>
+		</td>
+		<td class="comm comm_even">
+			<a href="/users/tantrum">tantrum</a>: 
+								<span style="font-size: 10px; color: #666;">2013-05-22 15:29:09</span>
+		<br/>
+				<p>will bfs work for this??</p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/89c911342bb620c0ae4e7ee078eb314b?s=40&20150116"/>
+		</td>
+		<td class="comm comm_odd">
+			<a href="/users/shoman">ahmed abd alrhman mohamed</a>: 
+								<span style="font-size: 10px; color: #666;">2013-01-31 03:20:37</span>
+		<br/>
+				<p>yes i do it
+<br/></p>
+						</td>
+	</tr>
+				
+	<tr>
+		<td width="50" style="vertical-align:top;">
+			<img src="https://www.gravatar.com/avatar/9a7bf2b2cf6fc29548640d5f19d6d8be?s=40&20150116"/>
+		</td>
+		<td class="comm comm_even">
+			<a href="/users/giovanni">Giovanni Botta</a>: 
+								<span style="font-size: 10px; color: #666;">2013-01-10 20:20:41</span>
+		<br/>
+				<p>How about Dijkstra's algorithm?
+<br/>
+<br/>Edit: Actually it's a little more complicated than that...</p>
+				<b>Last edit: 2013-01-10 20:34:47</b>
+						</td>
+	</tr>
+			
+</table>
+
+
+<script language="javascript" type="text/javascript">
+<!--
+function getCookieVal (offset) {
+        var endstr = document.cookie.indexOf (";", offset);
+        if (endstr == -1) { 
+                endstr = document.cookie.length; 
+        }
+        return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+  var arg = name + "=";
+  var alen = arg.length;
+  var clen = document.cookie.length;
+  var i = 0;
+  while (i < clen) {
+    var j = i + alen;
+    if (document.cookie.substring(i, j) == arg) {
+      return getCookieVal (j);
+      }
+    i = document.cookie.indexOf(" ", i) + 1;
+    if (i == 0) break; 
+    }
+  return null;
+}
+
+function toggleComments() {
+        var a = document.getElementById('comments_table');
+        var d = a.style.display;
+        if( d == "" || d == "block" ){
+                d = "none";
+                document.getElementById('comments_sh').innerHTML = 'show';
+        } else {
+                d = "block";
+                document.getElementById('comments_sh').innerHTML = 'hide';
+        }
+        a.style.display = d;
+        document.cookie="comments_table="+d+"; path=/;";
+}
+
+if( GetCookie('comments_table') == 'none' ){
+        document.getElementById('comments_sh').innerHTML = 'show';
+        document.getElementById('comments_table').style.display = 'hide';
+}
+
+-->
+</script>
+
+
+			<!-- google_ad_section_end -->
+			</div>
+			<table width="100%">
+        </table>
+<br/>
+		</div>
+	</div><!-- endof col-lg-8 col-md-8 -->
+	
+	<div class="col-lg-4 col-md-4">
+	
+				<div id="problem-btn-submit-box">
+			<a href="/submit/DIRVS/" id="problem-btn-submit" class="btn btn-primary" style="width: 100%; margin-bottom: 20px;"><i class="fa fa-send"></i> Submit solution!</a>
+		</div>
+		
+		<div class="h"><script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D427E&placement=wwwspojcom" id="_carbonads_js"></script></div>
+
+		
+		<table border=0 cellspacing=0 cellpadding=0 style="margin-bottom:10px" class="probleminfo" id="problem-meta">
+			<colgroup>
+				<col width="120"/>
+				<col/>
+			</colgroup>
+			<tbody>
+			<tr><td>Added by:</td><td><a href="/users/adrian">adrian</a></td></tr>
+			<tr><td>Date:</td><td>2004-05-08</td></tr>
+			<tr><td>Time limit:</td><td>13s
+			</td></tr>
+			<tr><td>Source limit:</td><td>50000B</td></tr>
+						<tr><td>Memory limit:</td><td>1536MB</td></tr>
+										<tr>
+					<td>Cluster:</td>
+					<td>
+													<a href="/clusters/" target="_blank">Cube (Intel G860)</a>
+								
+					</td>
+				</tr>
+						<tr><td>Languages:</td><td>All except: NODEJS PERL6 VB.NET </td></tr>
+			<tr><td>Resource:</td><td>ACM Central European Programming Contest, Prague 2000</td></tr>													</tbody>
+		</table>
+	
+		<!-- BEGIN: Voting for problem -->
+		
+				
+		<!-- END: Voting the problem -->
+	
+				
+				
+		
+		<script type="text/javascript">
+			function callback_after_vote(type, data)
+			{
+				var response = $.parseJSON(data);
+				manage_vote_interface(type);
+				//.html('<div class="vote-thank-you">Thank you!</div>');
+				
+
+				if (type == "problem" || type == "implementation") {
+					var progressBarValue = Math.round(2 + 98 * response.avg / 3);
+					var progressBarType;
+					if (progressBarValue < 25) progressBarType = "progress-bar-primary";
+					else if (progressBarValue < 50) progressBarType = "progress-bar-success";
+					else if (progressBarValue < 75) progressBarType = "progress-bar-warning";
+					else progressBarType = "progress-bar-danger";
+					
+					$("#rate-" + type + "-box .progress-bar").css("width", progressBarValue.toString() +"%");
+					$("#rate-" + type + "-box .progress-bar").attr("aria-valuenow", progressBarValue.toString());
+					$("#rate-" + type + "-box .progress-bar").attr("class", "progress-bar " + progressBarType);
+					$("#rate-" + type + "-box .progress-value").html(progressBarValue.toString() +"%");
+				}
+				else if (type == "quality") {
+					var quality_plus = response.sum_plus;
+					var quality_minus = response.sum_minus;
+
+					var box_content = '';
+
+					if (quality_plus > 0 || quality_minus > 0) {
+						if (quality_plus > 0) {
+							box_content += '<font size="+2"><span class="label label-success">' +
+								quality_plus.toString() + 
+								' <span class="fa fa-thumbs-o-up"></span></span></font>';
+						}
+						if (quality_minus > 0) {
+							box_content += '<font size="+2"><span class="label label-danger">' +
+								quality_minus.toString() + 
+								' <span class="fa fa-thumbs-o-down"></span></span></font>';
+						}
+					}
+
+					$( "#rate-" + type + "-box" ).empty().html(box_content);
+				}
+
+				// update count
+				if (response.update_count == 1) {
+					var count = parseInt($("#votes_count").html(), 10);
+					count++;
+					var votes_word = " vote";
+					if (count > 1) votes_word += "s";
+					$("#votes_count").empty().html(count.toString() + votes_word);
+				}
+			}
+			$( ".rate-btn" ).click(function() {
+				var rate_type = $(this).attr('data-rate-type').toString();
+				var rate_type_full = "";
+				var rate = $(this).attr('data-rate').toString();
+				if (rate_type == "p") rate_type_full = "problem";
+				else if (rate_type == "i") rate_type_full = "implementation";
+				else if (rate_type == "q") rate_type_full = "quality";
+				$.get( '/?a=vote&pid=9&t=' + rate_type + '&r=' + rate, function( data ) {
+				  callback_after_vote(rate_type_full, data);
+				});
+			});
+			function manage_vote_interface(type) {
+				number_of_voteboxes--;
+				/*
+				if (number_of_voteboxes == 0) {
+					$( "#vote-box" ).fadeOut(1500, function() {
+						$(this).remove();
+					});
+				} else {
+					$( "#vote-" + type + "-box" ).fadeOut(1500, function() {
+						$(this).remove();
+					});
+				}
+				*/
+				var n = $('.vote-thank-you').length;
+				var offset = (n * 60).toString() + "px";
+				$(document.body).append(
+					'<div class="vote-thank-you" style="margin: 40%;">' +
+					'<div class="alert alert-success" style="position: fixed; top: '+offset+';">' +
+					'<strong>Thank you for voting!</strong>' +				
+					'</div></div>');
+				setTimeout(function(){$( ".vote-thank-you" ).fadeOut(1500, function() {
+					$(this).remove();
+				});},2000);
+			}
+		</script>
+		
+		
+	</div><!-- endof col-lg-4 col-md-4 -->
+</div>
+
+
+
+
+
+
+<style>
+ul.list-unstyled li{
+	margin-bottom: 5px;
+}
+ul.list-unstyled li a.btn{
+	width: 100%;
+}
+ul.ui-autocomplete{
+	z-index: 10000;
+	width: 200px !important;
+}
+</style>
+	<br/>
+</div>
+		
+		
+		<div class="container" id="footer">
+			<div class="row">
+				<div class="col-md-10">
+					<p><a href="/info">About</a> | <a href="/tutorials">Tutorial</a> | <a href="/tools">Tools</a> | <a href="/clusters">Clusters</a> | <a href="/credits">Credits</a> | <a href="/sphereengine">API</a> | <a href="/sphereengine-widget">Widgets</a></p>
+					<p>Legal: 
+					   <a href="/legal-tos/" target="_blank">Terms of Service</a> | <a href="/legal-pp/" target="_blank">Privacy Policy</a> | <a href="/legal-gdpr/" target="_blank">GDPR Info</a>
+					</p>
+				</div>
+				<div class="col-md-2 text-right">
+					<a href="/rss/" ><img src="//stx1.spoj.com/gfx/rss10x10.gif" border=0>&nbsp;RSS</a>&nbsp;
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center" id="footer-srl">
+			
+	&copy; Spoj.com. All Rights Reserved. Spoj uses <a href="http://sphere-engine.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Engine</a>&trade; &copy; by <a href="http://sphere-research.com?utm_campaign=permanent&amp;utm_medium=footer&amp;utm_source=spoj" style="color:black">Sphere Research Labs</a>.
+
+		</div> 
+	</div>
+
+	<!-- JavaScripts -->
+	
+		
+	
+	<script type="text/javascript">
+	$(function(){
+		setTimeout(function(){
+			$('.no_a_info').css('visibility', 'visible');
+		}, 5000);
+		
+		if(!$('.aProblemTop').length && !$('.aProblemsTop').length && !$('.aSubmitTop').length && !$('.aStatusTop').length && !$('.aMainRight').length){
+			ga('send', 'event', 'ads', 'no-ads', 'main-contest');
+		}
+		if ($('.aProblemTop').height() == 0){
+			$('.aProblemTop').css({'border': '1px solid #ddd', 'background': '#f0f4e3', 'height': 90});
+			$('.aProblemTop').html($('<p class="text-center">using adblock?</p><h4 class="text-center">Online ads help us to maintain site.</h4><p class="text-center"><strong>please whitelist *.spoj.com</strong></p>'));
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemTop');
+		}
+		if ($('.aProblemsTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aProblemsTop');
+		}
+		if ($('.aSubmitTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aSubmitTop');
+		}
+		if ($('.aStatusTop').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aStatusTop');
+		}
+		if ($('.aMainRight').height() == 0){
+			ga('send', 'event', 'ads', 'adblock2', 'aMainRight');
+		}
+	});
+	</script>
+	
+	
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.timers.js"></script>
+	<script type="text/javascript" src="//stx1.spoj.com/gfx/jquery.cookie.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<script src="//stx1.spoj.com/gfx/md5.js"></script>
+	<script src="//stx1.spoj.com/gfx/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<script src="//stx1.spoj.com/gfx/scripts/tour.js"></script>
+	
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=321676846207&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+
+
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-10507872-1', 'auto');
+	  ga('require', 'linkid', 'linkid.js');
+	  ga('send', 'pageview');
+	</script>
+<!-- Hotjar Tracking Code for http://www.spoj.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:334656,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<script>
+(function(){
+  if(typeof _bsa !== 'undefined' && _bsa) {
+    // format, zoneKey, segment:value, options
+    _bsa.init('flexbar', 'CK7D4KJL', 'placement:demo');
+  }
+})();
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(document).on('click', '.track', function(){
+			var event = $(this).attr('data-event');
+			var action = $(this).attr('data-action');
+			var value = $(this).attr('data-value');
+			ga('send', 'event', event, action, value);
+		});
+	});
+	//window.open('http://incoming.hotjar.com/s/7366', '_blank');
+	</script>
+
+
+</body>
+</html>
