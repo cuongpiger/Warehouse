@@ -49,3 +49,32 @@
     * Độ dài vector $q$ là $||q|| = \sqrt{2^2 + 1^2 + 1^2 + 1^2 + 1^2 + 0^2 + 1^2 + 1^2} = \sqrt{10} ≈ 3.1623$<br><br>
     * Vậy $cosin(d_{j}, q) = \frac{9}{3.4641*3.1623} ≈ 0.822$<br><br>
 
+#4. Đánh giá các độ đo:
+* **Độ phủ** hay còn gọi là (recall) ở hãng **i** hay tài liệu **$d_i$**
+  > &nbsp;
+  > $r(i) = \frac{s_i}{|Dq|}$
+  > &nbsp;
+* **Độ chính xác** hay còn gọi là (precision) ở hạng $i$ hay tài liệu $d_i$
+  > &nbsp;
+  > $p(i) = \frac{s_i}{i}$
+  > &nbsp;
+  > với $s_i$ là số lượng tài liệu thực sự liên quan đến $d_!$ đến $d_i$ trong $R_q$
+  > &nbsp;
+  * Độ phủ tức là ta xem kết quả chúng ta trả ra nó phủ được bao nhiêu, giả sử chúng ta có 100 tài liệu là số tài liệu chúng ta thu thập được, khi chúng ta chạy ra thì thuật toán của chúng ta chỉ trả ra có 10 kết quả thôi, vậy tức là thuật toán ta phủ được 10 phần trăm trên tổng số 100 tài liệu.
+  * Độ chính xác là trong 10 tài liệu trả ra cho người dùng có bao nhiêu cái là đúng bao nhiêu cái là sai so với yêu cầu của người dùng, giả sử khi chúng ta lấy yếu tố con người để kiếm tra, ta thấy trong 10 tài liệu này chỉ có 8 tài liệu là đúng thôi còn 2 tài liệu kia là sai.
+  * Một bài toán ví dụ tổng quát: giả sử chúng ta có 100 tài liệu, người dùng search 1 từ là từ 'sao', trong tài liệu của chúng ta cũng có các tài liệu chứa từ 'sao' này như sao biển, sao thế, ngôi sao, sao trong hội thoại,... tổng cộng có 20 tài liệu chứ từ sao này, nhưng vì lí do nào đóm thuật toán ta tìm ra được có 8 trong tổng số 20 tài liệu này thôi thì độ phủ sẽ là $r(i) = \frac{s_i}{|Dq|} = \frac{100}{20} = \frac{8}{20} = 0.4$. Còn độ tin cây là j, giả sử trả ra 10 nhưng chỉ có 8 là chính xác thôi nên độ chính xác là $\frac{8}{10} = 0.8$
+* **Độ đo F-score**
+  > &nbsp;
+  > $F(i) = \frac{2p(i)r(i)}{p(i) + r(i)}$
+  > &nbsp;
+* **Độ chính xác trung bình**
+  * Độ chính xác trung bình của $n$ độ chính xác, bằng tổng của tất cả các độ chính xác chia cho n
+#5. Bài toán phân lớp tài liệu:
+##5.1. K-nearest neighbor (KNN):
+* Các bước để thực hiện thuật toán:
+  1. Tính toán khoảng cách giữa thằng ta đang xem xét d đến tất cả các thằng khác trong cơ sở dữ liệu
+  2. Từ đó chọn ra K thằng có khoảng cách gần nhất so với d
+  3. Nhìn xem trong K thằng đó, lớp nào xuát hiện nh` nhất thì ta lấy lớp nó gán cho thằng d ta đang xét
+##5.2. K-means:
+
+
