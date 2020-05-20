@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">
+        <h4>New Product</h4>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="">
+                <div class="form-group">
+                    <labe for="txtProName">Category</labe>
+                    <input type="text" class="form-control" id="txtProName" name="ProName" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="traTinyDes">Introduction</label>
+                    <textarea class="form-control" id="traTinyDes" name="TinyDes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <labe for="txtPrice">Price</labe>
+                    <input type="number" class="form-control" id="txtPrice" name="Price">
+                </div>
+                <div class="form-group">
+                    <label for="sloCatID">Category</label>
+                    <select class="form-control" id="sloCatID" name="CatID">
+                        {{#each this.categories}}
+                        <option value="{{CatID}}">{{CatName}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <a class="btn btn-success" href="/admin/products" role="button" title="Back to List"><i
+                        class="fa fa-backward" aria-hidden="true"></i></a>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i>
+                    Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
