@@ -1,0 +1,1 @@
+from langdetect import detect # this package is used to detect the language of the text
