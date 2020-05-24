@@ -110,18 +110,20 @@ class NLP:
     def wordFrequency(self):
         ps = PorterStemmer()
         wordFres = dict()
+        words = None
 
         if self.lang == 0:
             words = word_tokenize(' '.join(self.sentsCleaned))
+            words = [ps.stem(word.lower()) for word in words if word.lower() not in self.stopwords[self.lang]]
         else:
             annotator = VnCoreNLP("VnCoreNLP-1.1.1.jar", annotators="wseg,pos,ner,parse", max_heap_size='-Xmx2g')
 
             words = annotator.tokenize(' '.join(self.sentsCleaned))
             words = words[0]
-
-        words = [ps.stem(word.lower()) for word in words if word.lower() not in self.stopwords[self.lang]]
+            words = [word.lower() for word in words if word.lower() not in self.stopwords[self.lang]]
 
         for word in words:
             wordFres[word] = wordFres.get(word, 0) + 1
 
         self.wordFres = wordFres
+        self.handleText = ' '.join(words)
