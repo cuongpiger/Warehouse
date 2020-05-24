@@ -49,7 +49,7 @@ Bạn có thể tìm kiếm module tên là ***stopwords*** rồi **Download** n
 Trong thư mục ***results*** sau khi chạy các bạn thu được các file như sau:
 ![](https://f27-zpg.zdn.vn/4901583652990868059/afb65ac3c4673e396776.jpg)
 
-Trong đó các folder như **web_0** và **web_1** lần lượt là các output cho 2 url *techcrunch.com* và *ted*, bây giờ mình sẽ diễn giải cho folder **web_0** (**web_1** tương tự).
+Trong đó các folder như **web_0** và **web_1** lần lượt là các output cho 2 url *techcrunch.com* và *ted.com*, bây giờ mình sẽ diễn giải cho folder **web_0** (**web_1** tương tự).
   * file ***raw_html.txt***, là output ghi ra sau khi lấy dữ liệu raw từ url.
     ![](https://f28-zpg.zdn.vn/1243786903260448910/d2e3ebf67252880cd143.jpg)
   * file ***clean_html.txt***, là output ghi ra sau khi xóa tất cả các thẻ HTML.
