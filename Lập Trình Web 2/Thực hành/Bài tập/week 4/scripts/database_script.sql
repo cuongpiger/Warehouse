@@ -8,67 +8,56 @@ SET
 SET
   FOREIGN_KEY_CHECKS = 0;
 
+create table events (
+	id int unsigned auto_increment primary key,
+    title varchar(50),
+    briefdes varchar(255),
+    fulldes varchar (255),
+    dateheld date
+);
+
+create table participants (
+	id int unsigned auto_increment primary key,
+    name varchar(30),
+    email varchar(50)
+);
+
 create table admins (
-  id int unsigned auto_increment primary key,
-  fullname varchar(30) not null,
-  username varchar(20),
-  pass varchar(100),
-  email varchar(50),
+  email varchar(50) primary key,
+  name varchar(30) not null,
+  password varchar(100),
   phone varchar(15),
-  avatar blob
+  avatar varchar(100)
 );
 
 create table users (
-  id int unsigned auto_increment primary key,
-  fullname varchar(30) not null,
-  pass varchar(100),
-  email varchar(50),
-  attend boolean,
-  avatar longblob
+  email varchar(50) primary key,
+  name varchar(30) not null,
+  password varchar(100),
+  avatar varchar(100)
 );
 
-insert into
-  admins (fullname, username, pass, email, phone, avatar)
-values
-  (
-    N'Dương Mạnh Cường',
-    'mc',
-    N'123',
-    'mc@email',
-    '07531596842',
-    LOAD_FILE('D:\\1.png')
-  );
+create table users_events(
+	email varchar(50),
+    event_id int,
+    attend bool,
+    primary key (email, event_id)
+);
 
-insert into
-  admins (fullname, username, pass, email, phone, avatar)
-values
-  (
-    N 'Trịnh Nhã Hồng',
-    'nh',
-    N'123',
-    'nh@email',
-    '01593578426',
-    LOAD_FILE('D:\\2.jpg')
-  );
+create table sys(
+	id int primary key,
+	home varchar(255),
+    thanks varchar(255)
+);
 
-insert into
-  users (fullname, pass, email, attend, avatar)
-values
-  (
-    N'Dương Mạnh Cường',
-    '123',
-    'mc@email',
-    true,
-    LOAD_FILE('D:\\1.png')
-  );
+insert into admins (email, name, password, phone, avatar)
+values ('mc@email', N'Dương Mạnh Cường', 'a1d0c6e83f027327d8461063f4ac58a6', '07539512486', '/public/imgs/avatars/admins/1.png');
 
-insert into
-  users (fullname, pass, email, attend, avatar)
-values
-  (
-    N 'Trịnh Nhã Hồng',
-    '123',
-    'nh@email',
-    false,
-    LOAD_FILE('D:\\2.jpg')
-  );
+insert into users (email, name, password, avatar)
+values ('hl@email', N'Phan Hữu Lộc', 'a1d0c6e83f027327d8461063f4ac58a6', '/public/imgs/avatars/users/1.jpg');
+
+insert into events (title, briefdes, fulldes, dateheld)
+values (N'Hội nghị cho những người vừa chia tay người yêu', N'FA muôn năm', N'Cho ai mới chia tay người yêu', '2020-04-28');
+
+insert into users_events (email, event_id, attend)
+values ('hl@emai', 1, true);
