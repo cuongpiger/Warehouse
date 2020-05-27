@@ -21,7 +21,7 @@ router.post('/login', async (req, res, next) => {
   } else {
     res.render('../views/home', {
       email: email,
-      password: password, 
+      password: req.body.password, 
       rememberPassword: rememberPassword,
       login: false
     });

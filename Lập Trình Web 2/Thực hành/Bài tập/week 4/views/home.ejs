@@ -27,6 +27,11 @@
   <div class="row justify-content-center">
     <div class="col-md-4 card p-4 d-flex justify-content-center">
       <form action="/users/login" method="POST">
+        <% if (typeof login !== "undefined" && login === false) { %> 
+          <div class="alert alert-danger" role="alert">
+            Incorrect account or password!
+          </div>
+        <% } %> 
         <div class="form-group">
           <label>Email</label>
           <input
@@ -35,6 +40,7 @@
             placeholder="Enter your email"
             name="email"
             value="<%= typeof login !== "undefined" && login === false ? email : "" %>"
+            autofocus
           />
         </div>
         <div class="form-group">
@@ -60,20 +66,4 @@
     </div>
   </div>
 </div>
-<% if (typeof login !== "undefined" && login === false) { %> 
-<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-  <div class="toast" style="position: absolute; top: 0; right: 0;">
-    <div class="toast-header">
-      <strong class="mr-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
-<% } %> 
 <%- include('./partials/footer') %>
