@@ -1,5 +1,4 @@
 const express = require("express");
-const usersModel = require("../models/users.model");
 const eventsModel = require("../models/events.model");
 const md5 = require("md5");
 const multer = require("multer");
@@ -168,15 +167,8 @@ router.post("/password_update", async (req, res) => {
   }
 });
 
-router.get('/events_registration', async (req, res) => {
-  const results = await eventsModel.loadCanJoin(curUser.email);
-
-  res.render("../views/vwUsers/events_registration", {events: results});
-});
-
-
-router.post('/events_registration', (req, res) => {
-  console.log(req.body);
+router.get('/events_registration', (req, res) => {
+  res.render("../views/vwUsers/events_registration");
 });
 
 router.get("/register", async (req, res) => {

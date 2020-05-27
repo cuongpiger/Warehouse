@@ -29,42 +29,35 @@
            <div class="tab-content mt-3">
             <div class="tab-pane active" id="canjoin" role="tabpanel">
               <div class="row">
-                <form action="" class="w-100">
+                <form action="/users/events_registration" method="POST" class="w-100">
                   <table class="table table-hover">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Brief description</th>
+                        <th scope="col">Date held</th>
+                        <th scope="col">Register</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                      <% events.forEach((event, i) => { 
+                        const tmp = new Date(event.dateheld); 
+                        const fmDate = `${tmp.getDate()}/${tmp.getMonth() + 1}/${tmp.getFullYear()}`; %>
+                        <tr title="Full description: <%= event.fulldes %>">
+                          <th scope="row"><%= event.id %></th>
+                          <td><%= event.title %></td>
+                          <td><%= event.briefdes %></td>
+                          <td><%= fmDate %></td>
+                          <td><input type="checkbox" value="<%= event.id %>" name="register"></td>
+                        </tr>
+                      <% }); %> 
                     </tbody>
                   </table>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="" name="events">Option 1</label>
-                  </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="" name="events">Option 2</label>
-                  </div>
+                  <hr>
+                  <tfoot>
+                    <button type="submit" class="btn btn-outline-success float-right mr-3"><i class="fa fa-floppy-o" aria-hidden="true"></i> SAVE</button>
+                  </tfoot>
                 </form>
               </div>
             </div>
