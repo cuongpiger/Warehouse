@@ -62,5 +62,11 @@ values (N'Hội nghị cho những người vừa chia tay người yêu', N'FA 
 insert into events (title, briefdes, fulldes, dateheld)
 values (N'Hội nghị cho những người độc thân', N'FA là lẽ sống', N'Cho ai mới chia tay người yêu', '2020-04-10');
 
+insert into events (title, briefdes, fulldes, dateheld)
+values (N'Họp fan của Sếp', N'Sky ơi say oh yeah', N'I love Sơn Tùng MTP forever', '2020-07-10');
+
+insert into events (title, briefdes, fulldes, dateheld)
+values (N'Black Pink in your area', N'4 cô gái', N'Lisa - Jennie - Jisoo - Rosé', '2020-11-29');
+
 insert into users_events (email, event_id, attend)
 values ('hl@emai', 1, true);
