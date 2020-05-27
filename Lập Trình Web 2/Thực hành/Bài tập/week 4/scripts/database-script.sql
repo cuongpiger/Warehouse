@@ -59,5 +59,8 @@ values ('hl@email', N'Phan Hữu Lộc', 'a1d0c6e83f027327d8461063f4ac58a6', '/p
 insert into events (title, briefdes, fulldes, dateheld)
 values (N'Hội nghị cho những người vừa chia tay người yêu', N'FA muôn năm', N'Cho ai mới chia tay người yêu', '2020-04-28');
 
+insert into events (title, briefdes, fulldes, dateheld)
+values (N'Hội nghị cho những người độc thân', N'FA là lẽ sống', N'Cho ai mới chia tay người yêu', '2020-04-10');
+
 insert into users_events (email, event_id, attend)
 values ('hl@emai', 1, true);

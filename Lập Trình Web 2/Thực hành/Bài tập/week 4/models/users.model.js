@@ -12,5 +12,14 @@ module.exports = {
 
   loadSingle: function (email, password) {
     return db.load(`select * from ${TABLE} where email = '${email}' and password = '${password}'`);
-  }
+  },
+
+  update: function (entity) {
+    const condition = {
+      email: entity.email,
+    };
+
+    delete entity.email;
+    return db.update(TABLE, entity, condition);
+  },
 };

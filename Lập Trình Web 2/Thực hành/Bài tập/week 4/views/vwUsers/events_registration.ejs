@@ -1,0 +1,90 @@
+<%- include('../partials/header') %>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="/users/users" class="list-group-item list-group-item-action"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+        <a href="/users/events_registration" class="list-group-item list-group-item-action active"><i class="fa fa-calendar" aria-hidden="true"></i> Event Registration</a>
+        <a href="#" class="list-group-item list-group-item-action">Used</a>
+        <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+        <a href="#" class="list-group-item list-group-item-action">Dealer</a>
+        <a href="#" class="list-group-item list-group-item-action">Media</a>
+        <a href="#" class="list-group-item list-group-item-action">Post</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" href="#canjoin" role="tab" aria-controls="canjoin" aria-selected="true">Can join</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="#registered" role="tab" aria-controls="registered" aria-selected="false">Registered</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body">
+           <div class="tab-content mt-3">
+            <div class="tab-pane active" id="canjoin" role="tabpanel">
+              <div class="row">
+                <form action="" class="w-100">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="" name="events">Option 1</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="" name="events">Option 2</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="registered" role="tabpanel" aria-labelledby="registered-tab">  
+              <div class="row">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
+
+<script type="text/javascript">
+  $('#bologna-list a').on('click', function (e) {
+    e.preventDefault()
+  $(this).tab('show');
+})
+</script>
