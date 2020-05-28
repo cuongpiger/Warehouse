@@ -1,0 +1,5 @@
+https://thanhnien.vn/
+.story__title
+
+https://vnexpress.net/
+.title_news

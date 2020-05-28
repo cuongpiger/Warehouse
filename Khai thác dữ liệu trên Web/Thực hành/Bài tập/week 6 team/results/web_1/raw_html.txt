@@ -1,0 +1,12 @@
+<h3 class="title_news">
+<a data-medium="Item-2" data-thumb="0" href="https://video.vnexpress.net/tin-tuc/thoi-su/nuoc-tran-xuong-ha-du-sau-vo-dap-4106657.html" title="N&#x1B0;&#x1EDB;c tr&#xE0;n xu&#x1ED1;ng h&#x1EA1; du sau v&#x1EE1; &#x111;&#x1EAD;p">
+<svg class="ic ic-in-title ic-video"><use xlink:href="#Article-Video"/></svg>Nước tràn xuống hạ du sau vỡ đập </a>
+</h3>
+<h3 class="title_news">
+<a data-medium="Item-3" data-thumb="0" href="https://vnexpress.net/hoai-nghi-ve-nha-thau-trung-quoc-tren-toan-cau-4106009.html" title="Ho&#xE0;i nghi v&#x1EC1; nh&#xE0; th&#x1EA7;u Trung Qu&#x1ED1;c tr&#xEA;n to&#xE0;n c&#x1EA7;u">
+Hoài nghi về nhà thầu Trung Quốc trên toàn cầu </a>
+</h3>
+<h3 class="title_news">
+<a data-medium="Item-4" data-thumb="0" href="https://vnexpress.net/lu-cat-do-ap-xuong-duong-mui-ne-4106568.html" title="L&#x169; c&#xE1;t &#x111;&#x1ECF; &#x1EAD;p xu&#x1ED1;ng &#x111;&#x1B0;&#x1EDD;ng M&#x169;i N&#xE9;">
+Lũ cát đỏ ập xuống đường Mũi Né </a>
+</h3>
