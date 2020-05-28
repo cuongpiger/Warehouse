@@ -1,0 +1,135 @@
+<%- include('../partials/header') %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <nav aria-label="breadcrumb" class="mt-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/users/register">Home</a></li>
+          <li class="breadcrumb-item"><a href="/admins/management/admin">Admin</a></li>
+          <li class="breadcrumb-item"><a href="/admins/management/config">Config</a></li>
+          <li class="breadcrumb-item"><a href="/admins/management/profile">Profile</a></li>
+        </ol>
+      </nav>
+      <% if (opt === 'admin') { %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Attend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr>
+            <th scope="row"><%= user.fullname %></th>
+            <td><%= user.email %></td>
+            <td><%= user.attend === 1 ? 'True':'No' %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else if (opt === 'config') { %>
+      <form action="/admins/config" method="POST">
+        <div class="form-group">
+          <label>Nội dung Home</label>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+            name="welcomeHome"
+          />
+        </div>
+        <div class="form-group">
+          <label>Nội dung hỏi đáp tham gia</label>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="form-group">
+          <label>Nội dung hỏi đáp KHÔNG tham gia</label>
+          <input
+            type="text"
+            class="form-control"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <% } else if (opt === 'profile') {%>
+      <form method="POST" action='/admins/update_profile'>
+        <input type="hidden" name="id" value="<%= id %> ">
+        <div class="form-group">
+          <img src="data:image/jpeg;base64,<%- new Buffer(avatar).toString('base64'); %>" />
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            value="<%= email %>"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fullname">Fullname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullname"
+            value="<%= fullname %> "
+            name="fullname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullname"
+            value="<%= phone %> "
+            name="phone"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <hr>
+      <form action="/admins/update_password" method="POST">
+        <div class="form-group">
+          <label>Current password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="oldPass"
+            placeholder="Enter current password"
+            name="oldPass"
+          />
+        </div>
+        <div class="form-group">
+          <label>New password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="newPass"
+            placeholder="Enter new password"
+            name="newPass"
+          />
+        </div>
+        <div class="form-group">
+          <label>Retype new password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="retypePass"
+            placeholder="Enter new password"
+            name="retypePass"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

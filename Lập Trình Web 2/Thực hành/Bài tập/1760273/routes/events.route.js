@@ -1,8 +1,5 @@
 const express = require("express");
-const usersModel = require("../models/users.model");
 const eventsModel = require("../models/events.model");
-const usersEventsModel = require("../models/usersEvents.model");
-const participantsModel = require("../models/participants.model");
 const md5 = require("md5");
 const multer = require("multer");
 const path = require("path");
@@ -133,7 +130,7 @@ router.post("/profile_update", async (req, res) => {
   res.redirect("/users/users");
 });
 
-router.get("/users", async (req, res) => {
+router.get("/users", (req, res) => {
   res.render("../views/vwUsers/users", {
     avatar: curUser.avatar,
     name: curUser.name,
@@ -170,57 +167,22 @@ router.post("/password_update", async (req, res) => {
   }
 });
 
-router.get('/events_registration', async (req, res) => {
-  const results = await eventsModel.loadCanJoin(curUser.email);
-  const results2 = await usersEventsModel.loadForUser(curUser.email);
-
-  res.render("../views/vwUsers/events_registration", {events: results, eventsRegistered: results2});
+router.get('/events_registration', (req, res) => {
+  res.render("../views/vwUsers/events_registration");
 });
 
-
-router.post('/events_registration', async (req, res) => {
-  const registers = req.body.register;
-
-  for (let i = 0; i < registers.length; ++i) {
-    await usersEventsModel.insert({email: curUser.email, event_id: +registers[i], attend: false});
-  }
-  
-  res.redirect('/users/events_registration');
+router.get("/register", async (req, res) => {
+  res.render("../views/vwUsers/register");
 });
 
-router.get('/logout', (req, res) => {
-  req.session.curUser = undefined;
+router.post("/register_submit", async (req, res) => {
+  req.body.attend = true;
+  req.body.avatar = "";
 
-  res.redirect('/');
-});
-
-router.get("/participant_register", async (req, res) => {
-  const events = await eventsModel.loadRegis();
-  res.render("../views/vwUsers/participant_register", {
-    events
-  });
-});
-
-router.post("/event_register", async (req, res) => {
-  const email = req.body.email;
-  const event = +req.body.event;
-  const name = req.body.name;
-
-  const check = await usersEventsModel.check(email, event);
-  let flag = undefined;
-
-  if (check.length === 0) {
-    await usersEventsModel.insert({email: email, event_id: +event, attend: false});
-    await participantsModel.insert({email: email, name: name});
-
-    flag = 1;
-  } else {
-    flag = 0;
-  }
-
-  const events = await eventsModel.loadRegis();
-  res.render("../views/vwUsers/participant_register", {
-    events, flag
+  await usersModel.insert(req.body);
+  res.render("../views/vwUsers/register-result", {
+    name: req.body.full,
+    email: req.body.email,
   });
 });
 
