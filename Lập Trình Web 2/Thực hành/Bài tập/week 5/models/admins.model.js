@@ -12,12 +12,16 @@ module.exports = {
     return db.load(`select * from ${TABLE} where id = '${id}'`);
   },
 
+  loadAAdmin: function (email) {
+    return db.load(`select * from ${TABLE} where email = '${email}'`);
+  },
+
   update: function (entity) {
     const condition = {
-      id: entity.id,
+      email: entity.email,
     };
 
-    delete entity.id;
+    delete entity.email;
     return db.update(TABLE, entity, condition);
   },
 };

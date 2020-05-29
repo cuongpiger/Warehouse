@@ -1,11 +1,53 @@
 const express = require("express");
 const adminsModel = require("../models/admins.model");
 const usersModel = require("../models/users.model");
+const sysModel = require("../models/sys.model");
 const md5 = require("md5");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 const router = express.Router();
 
 let curAdmin = undefined;
 let adminLogin = undefined;
+
+// set storage engine
+const storage = multer.diskStorage({
+  destination: "public/imgs/avatars/admins/",
+  filename: function (req, file, cb) {
+    // fieldname is the `name="myImage"` in file index.ejs
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 }, // giới hạn dung lượng file tải lên
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+}).single("avatar");
+
+// check file type
+function checkFileType(file, cb) {
+  // allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+
+  // check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+
+  // check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    cb("Error: Images Only!");
+  }
+}
 
 router.get("/login/:status", (req, res) => {
   const status = +req.params.status;
@@ -34,6 +76,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post('/config', async (req, res) => {
+  await sysModel.update(req.body);
+  
+  res.redirect('/admins/management/config');
+});
+
 router.get("/management/:opt", async (req, res) => {
   const opt = req.params.opt;
 
@@ -45,9 +93,13 @@ router.get("/management/:opt", async (req, res) => {
       users,
     });
   } else if (opt === "config") {
-    const entity = req.body;
+    const sys = (await sysModel.load())[0];
 
-    console.log(entity);
+    res.render("../views/vwAdmins/management", {
+      opt: "config",
+      home: sys.home, 
+      thanks: sys.thanks
+    });
   } else if (opt === "profile") {
     const resback = await adminsModel.single(req.session.ID);
 
@@ -61,9 +113,11 @@ router.get("/management/:opt", async (req, res) => {
   }
 });
 
-router.post("/update_profile", async (req, res) => {
+router.post("/profile_update", async (req, res) => {
   await adminsModel.update(req.body);
-  res.redirect("/admins/management/profile");
+  curAdmin = (await adminsModel.loadAAdmin(req.body.email))[0];
+
+  res.redirect("/admins/profile");
 });
 
 router.post("/update_password", async (req, res) => {

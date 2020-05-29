@@ -5,9 +5,15 @@
       <nav aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/users/register">Home</a></li>
-          <li class="breadcrumb-item"><a href="/admins/management/admin">Admin</a></li>
-          <li class="breadcrumb-item"><a href="/admins/management/config">Config</a></li>
-          <li class="breadcrumb-item"><a href="/admins/management/profile">Profile</a></li>
+          <li class="breadcrumb-item">
+            <a href="/admins/management/admin">Admin</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/admins/management/config">Config</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/admins/management/profile">Profile</a>
+          </li>
         </ol>
       </nav>
       <% if (opt === 'admin') { %>
@@ -36,6 +42,7 @@
             class="form-control"
             aria-describedby="emailHelp"
             name="home"
+            value="<%= home %>"
           />
         </div>
         <div class="form-group">
@@ -45,80 +52,224 @@
             class="form-control"
             aria-describedby="emailHelp"
             name="thanks"
+            value="<%= thanks %>"
           />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <% } else if (opt === 'profile') {%>
-      <form method="POST" action='/admins/update_profile'>
-        <input type="hidden" name="id" value="<%= id %> ">
-        <div class="form-group">
-          <img src="data:image/jpeg;base64,<%- new Buffer(avatar).toString('base64'); %>" />
-          <label for="email">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            value="<%= email %>"
-            name="email"
-          />
+      <div class="card">
+        <div class="card-header">
+          <ul
+            class="nav nav-tabs card-header-tabs"
+            id="bologna-list"
+            role="tablist"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="#profile"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="true"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#avatar"
+                role="tab"
+                aria-controls="avatar"
+                aria-selected="false"
+                >Avatar</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#password"
+                role="tab"
+                aria-controls="password"
+                aria-selected="false"
+                >Password</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="fullname">Fullname</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullname"
-            value="<%= fullname %> "
-            name="fullname"
-          />
+
+        <div class="card-body">
+          <div class="tab-content mt-3">
+            <div class="tab-pane active" id="profile" role="tabpanel">
+              <div class="row">
+                <div class="col-md-12">
+                  <form action="/admins/profile_update" method="POST">
+                    <div class="form-group row">
+                      <label
+                        for="email"
+                        class="col-4 col-form-label font-weight-bold"
+                        >Email</label
+                      >
+                      <div class="col-8">
+                        <input
+                          name="email"
+                          class="form-control here"
+                          type="text"
+                          value="<%= email %>"
+                          readonly
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="name"
+                        class="col-4 col-form-label font-weight-bold"
+                        >Name</label
+                      >
+                      <div class="col-8">
+                        <input
+                          id="name"
+                          name="name"
+                          class="form-control here"
+                          type="text"
+                          value="<%= name %> "
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        for="phone"
+                        class="col-4 col-form-label font-weight-bold"
+                        >Phone</label
+                      >
+                      <div class="col-8">
+                        <input
+                          id="phone"
+                          name="phone"
+                          class="form-control here"
+                          type="text"
+                          value="<%= phone %> "
+                        />
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-outline-success float-right"
+                    >
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i> SAVE
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane"
+              id="avatar"
+              role="tabpanel"
+              aria-labelledby="avatar-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <form
+                    action="/admins/avatar_update"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="row justify-content-center mb-5">
+                      <div class="col-sm-3">
+                        <div class="text-center">
+                          <img
+                            src="<%= avatar %> "
+                            class="avatar img-circle img-thumbnail"
+                            alt="avatar"
+                          />
+                          <h6>
+                            <%= typeof msg !== 'undefined' ? msg : 'Upload a
+                            different photo...' %>
+                          </h6>
+                          <input
+                            type="file"
+                            class="text-center center-block file-upload"
+                            name="avatar"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-outline-success float-right"
+                    >
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i> SAVE
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane"
+              id="password"
+              role="tabpanel"
+              aria-labelledby="password-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <% if (typeof error !== "undefined") { %>
+                  <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                  </div>
+                  <% } %>
+                  <form action="/users/password_update" method="POST">
+                    <div class="form-group row">
+                      <label class="col-4 col-form-label font-weight-bold"
+                        >Current password</label
+                      >
+                      <div class="col-8">
+                        <input
+                          class="form-control here"
+                          type="password"
+                          name="currentpassword"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-4 col-form-label font-weight-bold"
+                        >New password</label
+                      >
+                      <div class="col-8">
+                        <input
+                          name="newpassword"
+                          class="form-control here"
+                          type="password"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-4 col-form-label font-weight-bold"
+                        >Retype new password</label
+                      >
+                      <div class="col-8">
+                        <input
+                          name="retypenewpassword"
+                          class="form-control here"
+                          type="password"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-outline-success float-right"
+                    >
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i> SAVE
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullname"
-            value="<%= phone %> "
-            name="phone"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <hr>
-      <form action="/admins/update_password" method="POST">
-        <div class="form-group">
-          <label>Current password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="oldPass"
-            placeholder="Enter current password"
-            name="oldPass"
-          />
-        </div>
-        <div class="form-group">
-          <label>New password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="newPass"
-            placeholder="Enter new password"
-            name="newPass"
-          />
-        </div>
-        <div class="form-group">
-          <label>Retype new password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="retypePass"
-            placeholder="Enter new password"
-            name="retypePass"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      </div>
       <% } %>
     </div>
   </div>
