@@ -101,41 +101,73 @@ router.get("/management/:opt", async (req, res) => {
       thanks: sys.thanks
     });
   } else if (opt === "profile") {
-    const resback = await adminsModel.single(req.session.ID);
-
     res.render("../views/vwAdmins/management", {
       opt: "profile",
-      phone: resback[0].phone,
-      email: resback[0].email,
-      fullname: resback[0].fullname,
-      id: +req.session.ID,
+      phone: curAdmin.phone,
+      email: curAdmin.email,
+      name: curAdmin.name,
+      avatar: curAdmin.avatar,
     });
   }
 });
 
 router.post("/profile_update", async (req, res) => {
-  await adminsModel.update(req.body);
+  await adminsModel.update({email: req.body.email, name: req.body.name, phone: req.body.phone});
+
   curAdmin = (await adminsModel.loadAAdmin(req.body.email))[0];
 
-  res.redirect("/admins/profile");
+  res.redirect("/admins/management/profile");
 });
 
-router.post("/update_password", async (req, res) => {
-  const oldPass = req.body.oldPass;
-  const newPass = req.body.newPass;
-  const retypePass = req.body.retypePass;
+router.post("/password_update", async (req, res) => {
+  const currentPassword = req.body.currentpassword;
+  const newPassword = req.body.newpassword;
+  const retypeNewPassword = req.body.retypenewpassword;
 
-  const resback = await adminsModel.single(req.session.ID);
-
-  if (oldPass === resback[0].pass && newPass === retypePass) {
+  if (md5(currentPassword) === curAdmin.password && newPassword === retypeNewPassword) {
     const entity = {
-      id: req.session.ID,
-      pass: newPass,
+      email: curAdmin.email,
+      password: md5(newPassword)
     };
 
     await adminsModel.update(entity);
     res.redirect("/admins/management/profile");
   }
+});
+
+router.post("/avatar_update", async (req, res) => {
+  upload(req, res, async (err) => {
+    if (err) {
+      curAdmin.msg = err;
+      res.redirect("/admins/management/profile");
+    } else {
+      if (req.file === undefined) {
+        curAdmin.msg = "Error: No file selected!";
+        res.redirect("/admins/management/profile");
+      } else {
+        fs.unlink(__dirname.slice(0, -7) + "/" + curAdmin.avatar, function (
+          err
+        ) {
+          if (err) {
+            console.log(err);
+          } else {
+            // if no error, file has been deleted successfully
+            console.log("File deleted!");
+          }
+        });
+
+        await adminsModel.update({
+          email: curAdmin.email,
+          avatar: `/public/imgs/avatars/admins/${req.file.filename}`,
+        });
+
+        curAdmin.msg = "File uploaded!";
+        curAdmin.avatar = `/public/imgs/avatars/admins/${req.file.filename}`;
+
+        res.redirect("/admins/management/profile");
+      }
+    }
+  });
 });
 
 module.exports = router;

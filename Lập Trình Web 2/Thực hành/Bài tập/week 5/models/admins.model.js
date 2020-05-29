@@ -8,10 +8,6 @@ module.exports = {
     );
   },
 
-  single: function (id) {
-    return db.load(`select * from ${TABLE} where id = '${id}'`);
-  },
-
   loadAAdmin: function (email) {
     return db.load(`select * from ${TABLE} where email = '${email}'`);
   },

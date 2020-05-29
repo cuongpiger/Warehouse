@@ -69,7 +69,7 @@ insert into events (title, briefdes, fulldes, dateheld)
 values (N'Black Pink in your area', N'4 cô gái', N'Lisa - Jennie - Jisoo - Rosé', '2020-11-29');
 
 insert into users_events (email, event_id, attend)
-values ('hl@emai', 1, true);
+values ('hl@email', 1, true);
 
 insert into sys (id, home, thanks)
 values (1, N'Welcome!', N'Thank you very much!!!');
