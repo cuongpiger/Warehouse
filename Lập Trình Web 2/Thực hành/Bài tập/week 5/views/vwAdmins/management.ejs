@@ -33,11 +33,14 @@
                 <th scope="row"><%= user.email %></th>
                 <td><%= user.name %></td>
                 <td><%= user.title %></td>
-                <td><input type="checkbox" name="attend" <%= user.attend === true ? "checked" : "" %>></td>
+                <td><input value="<%= user.event_id %> <%= user.email %>" type="checkbox" name="attend" <%= +user.attend === 1 ? "checked" : "" %>></td>
               </tr>
               <% }); %>
             </tbody>
           </table>
+          <tfoot>
+            <button type="submit" class="btn btn-outline-success float-right"><i class="fa fa-floppy-o" aria-hidden="true"></i> SAVE</button>
+          </tfoot>
         </form>
       <% } else if (opt === 'config') { %>
       <form action="/admins/config" method="POST">

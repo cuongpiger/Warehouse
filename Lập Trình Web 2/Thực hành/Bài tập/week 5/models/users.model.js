@@ -7,7 +7,7 @@ module.exports = {
   },
 
   loadAll: function () {
-    return db.load(`select us.email, us.name, ev.title, ue.attend
+    return db.load(`select us.email, us.name, ev.title, ue.attend, ue.event_id
     from users us inner join users_events ue on us.email = ue.email inner join events ev on ev.id = ue.event_id`);
   },
 

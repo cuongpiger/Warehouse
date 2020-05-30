@@ -170,4 +170,8 @@ router.post("/avatar_update", async (req, res) => {
   });
 });
 
+router.post('/check_attend', async (req, res) => {
+  console.log(req.body);
+});
+
 module.exports = router;
