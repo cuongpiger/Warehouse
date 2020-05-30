@@ -33,7 +33,7 @@
                 <th scope="row"><%= user.email %></th>
                 <td><%= user.name %></td>
                 <td><%= user.title %></td>
-                <td><input type="checkbox" name="attend" ></td>
+                <td><input type="checkbox" name="attend" <%= user.attend === true ? "checked" : "" %>></td>
               </tr>
               <% }); %>
             </tbody>
