@@ -6,7 +6,7 @@
         <div class="form-group">
           <% if (typeof flag !== "undefined") { %> 
             <div class="alert alert-<%= +flag === 1 ? "success" : "danger" %>" role="alert">
-              <%= +flag === 1 ? "Success" : "Fail" %>
+              <%= +flag === 1 ? thanks : "Fail" %>
             </div>
           <% } %> 
           <label for="exampleInputPassword1">Name</label>

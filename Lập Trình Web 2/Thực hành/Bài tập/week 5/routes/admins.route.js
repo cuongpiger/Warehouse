@@ -1,6 +1,7 @@
 const express = require("express");
 const adminsModel = require("../models/admins.model");
 const usersModel = require("../models/users.model");
+const usersEventsModel = require("../models/usersEvents.model");
 const sysModel = require("../models/sys.model");
 const md5 = require("md5");
 const multer = require("multer");
@@ -53,15 +54,25 @@ router.get("/login/:status", (req, res) => {
   const status = +req.params.status;
 
   if (status === 0) {
-    res.render("../views/vwAdmins/login");
+    if (req.session.adminLogin !== undefined) {
+      res.redirect("/admins/management/admin");
+    } else {
+      res.render("../views/vwAdmins/login");
+    }
   } else {
     res.render('../views/vwAdmins/login', {
-      adminLogin
+      adminLogin, rememberPassword: req.session.adminLogin
     });
   }
 });
 
 router.post("/login", async (req, res) => {
+  if (req.body.rememberPassword === 'on') {
+    req.session.adminLogin = 1;
+  } else {
+    req.session.adminLogin = undefined;
+  }
+
   adminLogin = {
     email: req.body.email,
     password: req.body.password
@@ -86,11 +97,12 @@ router.get("/management/:opt", async (req, res) => {
   const opt = req.params.opt;
 
   if (opt === "admin") {
-    const users = await usersModel.loadAll();
+    const users0 = await usersModel.loadAll();
+    const users1 = await usersEventsModel.loadAll();
 
     res.render("../views/vwAdmins/management", {
       opt: "admin",
-      users,
+      users: users0.concat(users1)
     });
   } else if (opt === "config") {
     const sys = (await sysModel.load())[0];
@@ -171,7 +183,14 @@ router.post("/avatar_update", async (req, res) => {
 });
 
 router.post('/check_attend', async (req, res) => {
-  console.log(req.body);
+  const attendInfo = req.body.attendInfo.split(' ');
+  const attend = req.body.attend;
+
+  console.log(attendInfo);
+  console.log(attend);
+
+  await usersEventsModel.update({email: attendInfo[0], event_id: +attendInfo[1], attend: attend});
+  res.redirect('/admins/management/admin');
 });
 
 module.exports = router;

@@ -3,6 +3,7 @@ const usersModel = require("../models/users.model");
 const eventsModel = require("../models/events.model");
 const usersEventsModel = require("../models/usersEvents.model");
 const participantsModel = require("../models/participants.model");
+const sysModel = require("../models/sys.model");
 const md5 = require("md5");
 const multer = require("multer");
 const path = require("path");
@@ -215,6 +216,7 @@ router.post("/event_register", async (req, res) => {
 
   const check = await usersEventsModel.check(email, event);
   let flag = undefined;
+  const sys = (await sysModel.load())[0];
 
   if (check.length === 0) {
     await usersEventsModel.insert({
@@ -233,6 +235,7 @@ router.post("/event_register", async (req, res) => {
   res.render("../views/vwUsers/participant_register", {
     events,
     flag,
+    thanks: sys.thanks
   });
 });
 

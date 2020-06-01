@@ -1,6 +1,7 @@
 const express = require("express");
 const exsession = require("express-session");
 const adminsRouter = require("./routes/admins.route");
+const sysModel = require("./models/sys.model");
 
 const app = express();
 
@@ -10,11 +11,12 @@ app.use(express.static("./public"));
 app.use('/public', express.static("./public"));
 app.use(exsession({ secret: "thisisalittlesecret" }));
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   if (req.session.curUser !== undefined && req.session.curUser !== '') {
     res.redirect("/users/users");
   } else {
-    res.render("home");
+    const results = (await sysModel.load())[0];
+    res.render("home", { home: results.home });
   }
 });
 
