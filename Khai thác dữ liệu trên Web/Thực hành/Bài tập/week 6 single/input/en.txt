@@ -1,0 +1,5 @@
+https://techcrunch.com/
+.post-block__content
+.river-byline__authors
+
+https://www.ted.com/talks/elizabeth_cox_what_is_a_coronavirus#t-1388
