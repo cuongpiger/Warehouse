@@ -1,0 +1,5 @@
+url: http://www.laughfactory.com/jokes
+cssNavi: div.jokes-nav ul li a
+
+                ::attr(href)
+                ::text
