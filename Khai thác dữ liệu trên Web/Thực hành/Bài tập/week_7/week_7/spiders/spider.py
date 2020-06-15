@@ -4,7 +4,7 @@ import os
 
 # read user's input from terminal storing in `input/data.json`
 def readInputData(fileName):
-    with open(fileName) as jsFile:
+    with open(fileName, 'rt') as jsFile:
         data = json.load(jsFile)
 
     return data
@@ -28,15 +28,21 @@ class NaviSpider(scrapy.Spider):
             json.dump(contents, infile)
 
 class ThumbSpider(scrapy.Spider):
-    userInput = readInputData('input/user_input.json')
+    # userInput = readInputData('input/user_input.json')
     name = 'thumb'
     # start_urls = ['https://vietnamnews.vn/politics-laws', 'https://vietnamnews.vn/society']
 
-    def start_requests(self):
-        urls = readInputData('input/user_choices.json')
+    def __init__(self, *args, **kwargs):
+        super(ThumbSpider, self).__init__(*args, **kwargs) 
+        self.userInput = readInputData('input/user_input.json')
+        self.start_urls = [kwargs.get('start_url')] 
 
-        for url in urls:
-            yield scrapy.Request(url = url, callback = self.parse)
+        # self.urls = readInputData('input/user_choices.json')
+        # self.start_urls = readInputData('input/user_choices.json')
+
+    """ def start_requests(self):
+        for url in self.urls:
+            yield scrapy.Request(url = url, callback = self.parse) """
 
     def parse(self, response):
         for cssThumb in self.userInput['cssThumb']: # browse each cssThumb which user provides

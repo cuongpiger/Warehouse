@@ -22,8 +22,21 @@ with open('input/user_input.json', 'w') as infile:
 """ process.crawl(NaviSpider)
 # process1.start() # the script will block here until the crawling is finished """
 
-choices = msc.chooseTabContens()
+""" choices = msc.chooseTabContens()
 msc.writeTabContentChoice(choices)
 
 process.crawl(ThumbSpider)
-process.start() # the script will block here until the crawling is finished
+process.start() # the script will block here until the crawling is finished """
+
+""" from scrapy import cmdline
+cmdline.execute("scrapy crawl thumb".split()) """
+
+
+""" os.system("scrapy crawl thumb")
+print('hello') """
+
+with open("input/user_choices.txt", "rt") as f:
+    txt = 'scrapy crawl thumb -a start_url=' + str(f.readlines()[0])
+
+    os.system(txt)
+    print('hello')
