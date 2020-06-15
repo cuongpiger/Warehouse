@@ -35,7 +35,9 @@ class ThumbSpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         super(ThumbSpider, self).__init__(*args, **kwargs) 
         self.userInput = readInputData('input/user_input.json')
-        self.start_urls = [kwargs.get('start_url')] 
+        self.start_urls = kwargs.get('start_url').split(',')
+        with open('test/starturl.json', 'w') as outfile:
+            json.dump(self.start_urls, outfile)
 
         # self.urls = readInputData('input/user_choices.json')
         # self.start_urls = readInputData('input/user_choices.json')
@@ -45,6 +47,8 @@ class ThumbSpider(scrapy.Spider):
             yield scrapy.Request(url = url, callback = self.parse) """
 
     def parse(self, response):
+        with open('test/starturl1.json', 'w') as outfile:
+            json.dump('run here', outfile)
         for cssThumb in self.userInput['cssThumb']: # browse each cssThumb which user provides
             items = response.css('{0}::attr(href)'.format(cssThumb)).getall() # access it
 
