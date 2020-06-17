@@ -29,8 +29,9 @@ class NaviSpider(scrapy.Spider):
 
 class ThumbSpider(scrapy.Spider):
     # userInput = readInputData('input/user_input.json')
-    name = 'thumb'
     # start_urls = ['https://vietnamnews.vn/politics-laws', 'https://vietnamnews.vn/society']
+    name = 'thumb'
+
 
     def __init__(self, *args, **kwargs):
         super(ThumbSpider, self).__init__(*args, **kwargs) 

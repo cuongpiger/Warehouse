@@ -1,0 +1,23 @@
+url
+https://vietnamnews.vn/
+
+
+
+navi
+ul.vnnews-nav li a
+
+
+
+page
+https://vietnamnews.vn/politics-laws?p={}
+
+
+
+thumb
+div.vnnews-big-list-news a
+div.vnnews-list-news ul li a
+
+
+
+detail
+div.vnnews-text-post p span
