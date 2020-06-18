@@ -31,7 +31,6 @@ class ThumbSpider(scrapy.Spider):
                 yield scrapy.Request(item, self.parseDetails, meta={'direc':response.meta['direc']})
 
     def parseDetails(self, response):
-
         for det in self.userInput['detail']:
             data = response.css('{0}::text'.format(det)).getall()
 

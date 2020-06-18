@@ -27,7 +27,14 @@ def readUserInput():
 
     userInput = dict()
 
-    userInput['url'] = input("Enter the website's URL where you need to get data: ").strip()
+    while True:
+        userInput['url'] = input("Enter the website's URL where you need to get data: ").strip()
+
+        if msc.allowScraping(userInput['url']) != 200:
+            print("Unfortunately, this website does not allow data scraping. Please try again with a different URL!")
+        else:
+            break
+
     userInput['url'] = userInput['url'] if userInput['url'][-1] != '/' else userInput['url'][:-1]
 
     userInput['navi'] = input("Enter the CSS selector of your website's navigation bar: ").strip()
