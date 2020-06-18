@@ -4,19 +4,28 @@ import json, shutil, os
 def readJson(filepath):
     data = []
 
-    with open(filepath) as jsonFile:
+    with open(filepath, encoding='utf-8') as jsonFile:
         data = json.load(jsonFile)
 
     return data
 
+def readTxt(filepath):
+    text = ''
+
+    with open(filepath, 'r', encoding='utf-8') as file:
+        text = file.read()
+
+    return text
+
+
 def writeJson(filepath, option, data):
-    with open(filepath, option) as jsonFile:
+    with open(filepath, option, encoding='utf-8') as jsonFile:
         json.dump(data, jsonFile)
 
 def writeTxt(filepath, option, data):
-    f = open(filepath, option)
-    f.write(data)
-    f.close()
+    with open(filepath, option, encoding='utf-8') as txtFile:
+        data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
+        txtFile.write(data)
 
 def cleanFolder(path):
     for filename in os.listdir(path):
