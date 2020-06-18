@@ -15,7 +15,7 @@ class NaviSpider(scrapy.Spider):
         texts = response.css('{0}::text'.format(self.userInput['navi'])).getall() # get all text of a tags
         hrefs = response.css('{0}::attr(href)'.format(self.userInput['navi'])).getall() # get all href attributes of a tags
 
-        contents = list(map(lambda x, y: {'text': x.strip(), 'href': (y if 'http' in y else (self.userInput['url'] + '/' + y)).replace('//', '/'), 'direc': msc.getCategory(y)}, texts, hrefs)) # convent into pair of {text, href} and store in a list
+        contents = list(map(lambda x, y: {'text': x.strip(), 'href': (y if 'http' in y else (self.userInput['url'] + '/' + y)).replace('//', '/').replace(':/', '://'), 'direc': msc.getCategory(y)}, texts, hrefs)) # convent into pair of {text, href} and store in a list
         
         # write to json file
         dt.writeJson('data_config/navi_contents.json', 'w', contents)

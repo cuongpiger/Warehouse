@@ -12,3 +12,8 @@ def readJson(filepath):
 def writeJson(filepath, option, data):
     with open(filepath, option) as jsonFile:
         json.dump(data, jsonFile)
+
+def writeTxt(filepath, option, data):
+    f = open(filepath, option)
+    f.write(data)
+    f.close()
