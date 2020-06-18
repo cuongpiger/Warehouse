@@ -9,7 +9,12 @@ ul.vnnews-nav li a
 
 
 page
-https://vietnamnews.vn/politics-laws?p={}
+?p=
+
+
+
+nop
+10
 
 
 

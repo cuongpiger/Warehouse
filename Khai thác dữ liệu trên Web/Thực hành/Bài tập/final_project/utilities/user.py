@@ -1,5 +1,13 @@
-import utilities.data as dt
+import utilities.data as dt, utilities.misc as msc
 import os
+
+def cleanResultsFolder():
+    choice = input("Would you like to clean the results folder? [y/n]: ").strip().lower()
+
+    if choice == 'y':
+        dt.cleanFolder('results')
+
+        print("Clean up successfully!")
 
 # used to read data which user provide from terminal
 def readUserInput():
@@ -28,8 +36,10 @@ def readUserInput():
 
     if scroll.lower() == 'y':
         userInput['page'] = input("Enter the website's URL form that it uses pagination to get data\n(Example: http://website.com/pages?page={}): ").strip()
+        userInput['nop'] = int(input("Enter the number of pages you need to crawl data for each category: "))
     else:
         userInput['page'] = ''
+        userInput['nop'] = -1
 
     print("Enter CSS selectors of thumbnails which you need to get data (enter 'stop' to ending entering process):")
     userInput['thumb'] = enterCccSelectors()
@@ -37,11 +47,15 @@ def readUserInput():
     print("Enter CSS selectors of details inside thumbnail which you need to get data (enter 'stop' to ending entering process):")
     userInput['detail'] = enterCccSelectors()
 
+    userInput['domain'] = msc.getDomainName(userInput['url'])
+    os.mkdir(f"results/{userInput['domain']}")
+
     dt.writeJson('data_config/user_input.json', 'w', userInput)
 
 
 def chooseCategory():
     cates = dt.readJson('data_config/navi_contents.json')
+    domain = msc.getDomainName(cates[0]['href'])
 
     print("The categories obtained on the navigation bar are:")
 
@@ -53,6 +67,6 @@ def chooseCategory():
 
     for choice in choices:
         data.append(cates[choice - 1])
-        os.mkdir(f"results/{cates[choice - 1]['direc']}")
+        os.mkdir(f"results/{domain}/{cates[choice - 1]['direc']}")
 
     dt.writeJson('data_config/user_cate_choices.json', 'w', data)
