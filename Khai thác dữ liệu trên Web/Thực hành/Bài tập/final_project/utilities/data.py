@@ -1,5 +1,14 @@
 import json, shutil, os
 
+def removeSpecialChars(text):
+    import re
+
+    string = re.sub('[^\w\s]', '', text)
+    string = re.sub('\s+', ' ', string)
+    string = string.strip()
+
+    return string
+
 # used to read data from a json file
 def readJson(filepath):
     data = []
@@ -22,9 +31,13 @@ def writeJson(filepath, option, data):
     with open(filepath, option, encoding='utf-8') as jsonFile:
         json.dump(data, jsonFile)
 
-def writeTxt(filepath, option, data):
+def writeTxt(filepath, option, data, remove):
     with open(filepath, option, encoding='utf-8') as txtFile:
         data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
+        
+        if remove:
+            data = removeSpecialChars(data)
+
         txtFile.write(data)
 
 def cleanFolder(path):
@@ -38,3 +51,4 @@ def cleanFolder(path):
                 shutil.rmtree(file_path)
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
+            

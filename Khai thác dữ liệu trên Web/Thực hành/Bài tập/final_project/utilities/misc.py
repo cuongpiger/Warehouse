@@ -10,4 +10,3 @@ def allowScraping(url):
     import requests
 
     return requests.get(url).status_code
-
