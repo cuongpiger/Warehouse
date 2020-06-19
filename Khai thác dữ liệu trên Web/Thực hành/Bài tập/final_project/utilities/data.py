@@ -52,3 +52,16 @@ def cleanFolder(path):
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
             
+def getListPath(path):
+    listPath = list()
+
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            tmp = dict()
+
+            tmp['file'] = f'{root}/{file}'
+            tmp['root'] = root
+
+            listPath.append(tmp)
+
+    return listPath
