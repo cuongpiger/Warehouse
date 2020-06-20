@@ -32,4 +32,4 @@ class ThumbSpider(scrapy.Spider):
         for det in self.userInput['detail']:
             data = response.css('{0}::text'.format(det)).getall()
 
-            dt.writeTxt('results/{1}/{0}/{0}.txt'.format(response.meta['direc'], self.userInput['domain']), 'a', data, True)
+            dt.writeTxt('results/{1}/{0}/{0}_clear.txt'.format(response.meta['direc'], self.userInput['domain']), 'a', data, True)
