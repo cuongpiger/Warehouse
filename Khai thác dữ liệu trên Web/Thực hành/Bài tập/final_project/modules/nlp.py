@@ -16,17 +16,20 @@ class NLP:
     def __init__(self, path):
         tmp = path.split('/')
 
+        self.fullpath = path
         self.text = dt.readTxt(path)
-        self.path = '/'.join(tmp[:3])
-        self.name = tmp[4]
-        self.lang = 1 if detect(self.text) == 'vi' else 0
+
+        if self.text:
+            self.path = '/'.join(tmp[:3])
+            self.name = tmp[4]
+            self.lang = 1 if detect(self.text) == 'vi' else 0
 
     def __call__(self):
-        if self.text == '':
-            print('Unfortunately, there was an error crawling!')
-        else:
+        if self.text:
             self.sentenceTokenize()
             self.wordTokenize()
+        else:
+            print(f'Unfortunately, there was an error crawling at path {self.fullpath}!')
 
     def sentenceTokenize(self):
         text = sent_tokenize(self.text)

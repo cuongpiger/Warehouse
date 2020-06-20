@@ -52,17 +52,13 @@ def cleanFolder(path):
                 shutil.rmtree(file_path)
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
-            
-def getListPath(path):
-    listPath = list()
+
+# this function bases on the path parameters to get all file in this path then returning a list of filenames        
+def getMultiFiles(path):
+    listPaths = list()
 
     for root, dirs, files in os.walk(path):
         for file in files:
-            tmp = dict()
+            listPaths.append(file)
 
-            tmp['file'] = (f'{root}/{file}').replace('\\', '/')
-            tmp['root'] = root.replace('\\', '/')
-
-            listPath.append(tmp)
-
-    return listPath
+    return listPaths
