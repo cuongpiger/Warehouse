@@ -32,13 +32,12 @@ def writeJson(filepath, option, data):
         json.dump(data, jsonFile)
 
 def writeTxt(filepath, option, data, join):
-    with open(filepath, option, encoding='utf-8') as txtFile:
-        if join:
-            data = ''.join(data)
+    if join:
+        data = ''.join(data)
 
-        # data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
-        
-        if data != '':
+    if data != '':
+        with open(filepath, option, encoding='utf-8') as txtFile:
+            # data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
             txtFile.write(data)
 
 def cleanFolder(path):
