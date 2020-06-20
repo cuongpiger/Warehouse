@@ -31,13 +31,13 @@ def writeJson(filepath, option, data):
     with open(filepath, option, encoding='utf-8') as jsonFile:
         json.dump(data, jsonFile)
 
-def writeTxt(filepath, option, data, remove):
+def writeTxt(filepath, option, data, join):
     with open(filepath, option, encoding='utf-8') as txtFile:
-        data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
-        
-        if remove:
-            data = removeSpecialChars(data)
+        if join:
+            data = ''.join(data)
 
+        # data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
+        
         txtFile.write(data)
 
 def cleanFolder(path):
@@ -59,8 +59,8 @@ def getListPath(path):
         for file in files:
             tmp = dict()
 
-            tmp['file'] = f'{root}/{file}'
-            tmp['root'] = root
+            tmp['file'] = (f'{root}/{file}').replace('\\', '/')
+            tmp['root'] = root.replace('\\', '/')
 
             listPath.append(tmp)
 
