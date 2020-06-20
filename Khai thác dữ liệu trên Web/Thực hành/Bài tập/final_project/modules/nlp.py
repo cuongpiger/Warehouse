@@ -1,6 +1,9 @@
 from langdetect import detect
 from string import punctuation # list of special characters
 from nltk.corpus import stopwords # english stopwords
+from nltk.tokenize import sent_tokenize
+
+import sys
 
 sys.path.insert(1, 'utilities')
 import data as dt, misc as msc
@@ -11,14 +14,21 @@ class NLP:
     def __init__(self, path):
         self.text = dt.readTxt(path)
         self.path = path[:path.rfind('/')]
+        self.name = self.path[self.path.rfind('/'):]
         self.lang = 1 if detect(self.text) == 'vi' else 0
 
     def __call__(self):
         if self.text == '':
             print('Unfortunately, there was an error crawling!')
         else:
-            pass
+            self.sentenceTokenize()
 
-    
+    def sentenceTokenize(self):
+        text = sent_tokenize(self.text)
+        text = list(map(lambda s: dt.removeSpecialChars(s), text))
+        text = '\n'.join(text)
 
-        
+        dt.writeTxt(f'{self.path}/{self.name}_sentence-tokenize.txt', 'w', text, False)       
+
+    def wordTokenize(self):
+        pass
