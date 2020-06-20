@@ -20,5 +20,8 @@ data.writeTxt('misc/text.txt', 'w', dt, False) """
 
 from modules.nlp import NLP
 
-tmp = NLP('results/vietnamnews.vn/politics-laws/politics-laws_clear.txt')
+tmp = NLP('results/vietnamnews.vn/politics-laws/clear/doc_1.txt')
 tmp()
+
+
+

@@ -20,16 +20,18 @@ class ThumbSpider(scrapy.Spider):
                     yield scrapy.Request(url, self.parse, meta={'direc':cate['direc']})
 
     def parse(self, response):
+        i = 0
         for thumb in self.userInput['thumb']:
             items = response.css('{0}::attr(href)'.format(thumb)).getall()
 
-            for item in items:
+            for i, item in enumerate(items):
                 item = response.urljoin(item)
+                i += 1
                 
-                yield scrapy.Request(item, self.parseDetails, meta={'direc':response.meta['direc']})
+                yield scrapy.Request(item, self.parseDetails, meta={'direc':response.meta['direc'], 'id': i})
 
     def parseDetails(self, response):
         for det in self.userInput['detail']:
             data = response.css('{0}::text'.format(det)).getall()
 
-            dt.writeTxt('results/{1}/{0}/{0}_clear.txt'.format(response.meta['direc'], self.userInput['domain']), 'a', data, True)
+            dt.writeTxt('results/{1}/{0}/clear/doc_{2}.txt'.format(response.meta['direc'], self.userInput['domain'], response.meta['id']), 'w', data, True)

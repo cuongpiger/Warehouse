@@ -55,7 +55,8 @@ def readUserInput():
     userInput['detail'] = enterCccSelectors()
 
     userInput['domain'] = msc.getDomainName(userInput['url'])
-    os.mkdir(f"results/{userInput['domain']}")
+    # os.mkdir(f"results/{userInput['domain']}")
+    os.makedirs(os.path.dirname(f"results/{userInput['domain']}/"), exist_ok=True)
 
     dt.writeJson('data_config/user_input.json', 'w', userInput)
 
@@ -74,6 +75,9 @@ def chooseCategory():
 
     for choice in choices:
         data.append(cates[choice - 1])
-        os.mkdir(f"results/{domain}/{cates[choice - 1]['direc']}")
+        # os.mkdir(f"results/{domain}/{cates[choice - 1]['direc']}")
+        os.makedirs(os.path.dirname(f"results/{domain}/{cates[choice - 1]['direc']}/clear/"), exist_ok=True)
+        os.makedirs(os.path.dirname(f"results/{domain}/{cates[choice - 1]['direc']}/sentence_tokenize/"), exist_ok=True)
+        os.makedirs(os.path.dirname(f"results/{domain}/{cates[choice - 1]['direc']}/word_tokenize/"), exist_ok=True)
 
     dt.writeJson('data_config/user_cate_choices.json', 'w', data)

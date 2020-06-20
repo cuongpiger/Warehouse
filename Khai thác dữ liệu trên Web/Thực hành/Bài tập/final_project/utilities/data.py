@@ -38,7 +38,8 @@ def writeTxt(filepath, option, data, join):
 
         # data = json.dumps(data, ensure_ascii=False).encode('utf-8').decode()
         
-        txtFile.write(data)
+        if data != '':
+            txtFile.write(data)
 
 def cleanFolder(path):
     for filename in os.listdir(path):
