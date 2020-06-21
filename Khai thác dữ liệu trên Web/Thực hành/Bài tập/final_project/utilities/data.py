@@ -61,3 +61,4 @@ def getMultiFiles(path):
             listPaths.append(f'{file}')
 
     return listPaths
+    

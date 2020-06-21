@@ -21,10 +21,21 @@ class NLPs(NLP):
                 nlp = NLP(f'{path}/clear/{file}')
                 nlp()
 
-    def bagOfWord(self):
-        dataSets = list()
+        tmp = input('Do you want to perform texts in vector space? [y/n]: ').strip().lower()
 
+        if tmp == 'y':
+            print('1. Bag of words\n2. TF-IDF')
+            choice = int(input('Do you want toWhat method do you want to use: ').strip())
+
+            if choice == 1: self.bagOfWord()
+            elif choice == 2: self.tfIdf()
+            else: print('Your choice is invalid!')
+
+
+
+    def bagOfWord(self):
         for path in self.paths:
+            dataSets = list()
             filePaths = dt.getMultiFiles(f'{path}/sentence_tokenize')
             
             for filePath in filePaths:
@@ -42,9 +53,8 @@ class NLPs(NLP):
             df.to_csv(f'{path}/bag_of_words.csv')
 
     def tfIdf(self):
-        dataSets = list()
-
         for path in self.paths:
+            dataSets = list()
             filePaths = dt.getMultiFiles(f'{path}/sentence_tokenize')
             
             for filePath in filePaths:
