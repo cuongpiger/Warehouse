@@ -36,7 +36,7 @@ class NLP:
         text = list(map(lambda s: dt.removeSpecialChars(s), text))
         text = '\n'.join(text)
 
-        dt.writeTxt(f'{self.path}/sentence_tokenize/{self.name}_sentence-tokenize.txt', 'w', text, False)       
+        dt.writeTxt(f'{self.path}/sentence_tokenize/{self.name}', 'w', text, False)       
 
     def wordTokenize(self):
         ps = PorterStemmer()

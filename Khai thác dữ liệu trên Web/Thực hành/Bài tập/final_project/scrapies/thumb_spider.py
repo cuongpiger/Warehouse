@@ -10,6 +10,7 @@ class ThumbSpider(scrapy.Spider):
     def __init__(self):
         self.userInput = dt.readJson('data_config/user_input.json')
         self.cates = dt.readJson('data_config/user_cate_choices.json')
+        self.index = 0
 
     def start_requests(self):
         for cate in self.cates:
@@ -20,15 +21,14 @@ class ThumbSpider(scrapy.Spider):
                     yield scrapy.Request(url, self.parse, meta={'direc':cate['direc']})
 
     def parse(self, response):
-        i = 0
         for thumb in self.userInput['thumb']:
             items = response.css('{0}::attr(href)'.format(thumb)).getall()
 
             for i, item in enumerate(items):
                 item = response.urljoin(item)
-                i += 1
+                self.index += 1
                 
-                yield scrapy.Request(item, self.parseDetails, meta={'direc':response.meta['direc'], 'id': i})
+                yield scrapy.Request(item, self.parseDetails, meta={'direc':response.meta['direc'], 'id': self.index})
 
     def parseDetails(self, response):
         for det in self.userInput['detail']:

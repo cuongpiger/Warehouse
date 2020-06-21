@@ -58,6 +58,6 @@ def getMultiFiles(path):
 
     for root, dirs, files in os.walk(path):
         for file in files:
-            listPaths.append(file)
+            listPaths.append(f'{file}')
 
     return listPaths
