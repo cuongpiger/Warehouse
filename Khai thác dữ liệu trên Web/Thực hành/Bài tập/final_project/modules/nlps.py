@@ -4,6 +4,7 @@ import sys
 
 from modules.nlp import NLP
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 sys.path.insert(1, 'utilities')
 import data as dt, misc as msc
@@ -34,7 +35,7 @@ class NLPs(NLP):
                 self.tfIdf()
             else: print('Your choice is invalid!')
 
-        # self.softCosineSimilarity()
+        self.cosineSimilarity()
 
     def bagOfWord(self):
         for path in self.paths:
@@ -53,7 +54,7 @@ class NLPs(NLP):
             df = pd.DataFrame(bow.toarray(), index=filePaths, columns=count.get_feature_names())
 
             # write to csv file
-            df.to_csv(f'{path}/bag_of_words.csv')
+            df.to_csv(f'{path}/bag-of-words.csv')
 
     def tfIdf(self):
         for path in self.paths:
@@ -76,28 +77,22 @@ class NLPs(NLP):
 
     def cosineSimilarity(self):
         for path in self.paths:
-            documents = list()
-            sentences = list()
+            dataSets = list()
             filePaths = dt.getMultiFiles(f'{path}/sentence_tokenize')
-
+            
             for filePath in filePaths:
                 textData = dt.readTxt(f'{path}/sentence_tokenize/{filePath}')
-                documents.append(textData)
+                dataSets.append(textData)
 
-            # prepare a dictionary and a corpus
-            dictionary = corpora.Dictionary([simple_preprocess(doc) for doc in documents])
+            # create the bag of words feature matrix
+            tfidf = TfidfVectorizer(stop_words='english')
+            sparse_matrix = tfidf.fit_transform(dataSets)
+            doc_term_matrix = sparse_matrix.todense()
 
-            # prepare the similarity matrix
-            similarity_matrix = fasttext_model300.similarity_matrix(dictionary, tfidf=None, threshold=0.0, exponent=2.0, nonzero_limit=100)
+            # create data frame
+            df = pd.DataFrame(doc_term_matrix, index=filePaths, columns=tfidf.get_feature_names())
+            df = pd.DataFrame(cosine_similarity(df), index=filePaths, columns=filePaths)
 
-            # convert the sentences into bag-opf-words vectors
-            for doc in documents:
-                sent = dictionary.doc2bow(simple_preprocess(doc))
-                sentences.append(sent)
-
-            len_array = np.arange(len(sentences))
-            xx, yy = np.meshgrid(len_array, len_array)
-            cossim_mat = pd.DataFrame([[round(softcossim(sentences[i],sentences[j], similarity_matrix) ,2) for i, j in zip(x,y)] for y, x in zip(xx, yy)], index=filePaths, columns=filePaths)
-
-            cossim_mat.to_csv(f'{path}/cosine_similarity.csv')
+            # write to csv file
+            df.to_csv(f'{path}/cosine-similarity.csv')
 
