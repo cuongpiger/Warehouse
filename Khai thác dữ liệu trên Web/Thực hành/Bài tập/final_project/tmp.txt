@@ -1,0 +1,2 @@
+cô giáo => cô_giáo,
+truyền hình => truyền_hình

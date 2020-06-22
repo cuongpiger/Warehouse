@@ -1,5 +1,6 @@
 from langdetect import detect
 from string import punctuation # list of special characters
+from vncorenlp import VnCoreNLP
 from nltk.corpus import stopwords # english stopwords
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import PorterStemmer # https://www.geeksforgeeks.org/python-stemming-words-with-nltk/
@@ -12,6 +13,8 @@ import data as dt, misc as msc
 
 vnStopwords = dt.readTxt(r'data_config\vietnamese_stopwords_dash.txt').split('\n')
 stopwords = [set(stopwords.words('english') + list(punctuation)), set(vnStopwords + list(punctuation))]
+annotator = VnCoreNLP("VnCoreNLP-1.1.1.jar", annotators="wseg,pos,ner,parse", max_heap_size='-Xmx2g')
+
 class NLP:
     def __init__(self, path):
         tmp = path.split('/')
@@ -42,11 +45,16 @@ class NLP:
         ps = PorterStemmer()
         word_fres = dict()
         words = None
+        para = dt.readTxt(f'{self.path}/clear/{self.name}')
 
         if self.lang == 0:
-            para = dt.readTxt(f'{self.path}/clear/{self.name}')
             words = word_tokenize(para)
             words = [ps.stem(word.lower()) for word in words if word.lower() not in stopwords[self.lang]]
+        else:
+            words = annotator.tokenize(para)[0]
+            words = [word.lower() for word in words if word.lower() not in stopwords[self.lang]]
+
+            dt.writeTxt(f'{self.path}/sentence_tokenize/dash_{self.name}', 'w', ' '.join(words), False)
 
         for word in words:
             word_fres[word] = word_fres.get(word, 0) + 1

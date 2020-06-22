@@ -1,0 +1,28 @@
+url
+https://vnexpress.net/
+
+
+
+navi
+nav ul li a
+
+
+
+page
+-p
+
+
+
+nop
+2
+
+
+
+thumb
+article.item-news h1 a
+article.item-news h3 a
+
+
+
+detail
+p

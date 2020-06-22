@@ -19,6 +19,10 @@ class ThumbSpider(scrapy.Spider):
                     url = '{0}{1}{2}'.format(cate['href'], self.userInput['page'], i)
 
                     yield scrapy.Request(url, self.parse, meta={'direc':cate['direc']})
+            else:
+                url = '{0}'.format(cate['href'])
+
+                yield scrapy.Request(url, self.parse, meta={'direc':cate['direc']})
 
     def parse(self, response):
         for thumb in self.userInput['thumb']:
