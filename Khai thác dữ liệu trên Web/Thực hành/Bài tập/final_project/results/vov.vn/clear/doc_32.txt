@@ -1,0 +1,16 @@
+Hanoi is hosting Qualcomm's first research and development facility in Southeast Asia as the tech giant looks to serve its local partners.
+The California-based tech giant said the new facility, opened last week, aims to develop wireless technologies (4G, 5G) and Internet of Things (IoT) and provide testing services to local manufacturing partners like VinSmart, BKAV and Viettel.The testing center has three labs: a radio frequency (RF) lab to test radio chips and design evaluation and calibration; another to test power consumption and performance metrics (PPT); and a lab to adjust and test image sensors and measure the quality of sensor results. The last could refer to Image Signal Processor (ISP) units or the Snapdragon system on chip (SoC) in Qualcomm's virtual fingerprint recognition feature, since the company does not produce image sensors.The new plant is expected to help domestic businesses to develop and provide breakthrough "Make in Vietnam" products, the company said.Select candidates from the Qualcomm Vietnam Innovation Challenge, an annual competition launched last December for Vietnamese startups in designing 5G, AI, IoT and other products, will receive training in business and intellectual property rights (IPR) and have access to the facility to develop new products.Even though the company has not specifically mentioned the next-generation 5G technology, it likely that the new facility will play a role in its propagation. Last June, the company entered into a partnership with Japan's Fujitsu and Vingroup, Vietnam’s largest listed firm by market value, to make 5G smartphones in Vietnam.However, since 5G modem fabrication unit is an advanced technology that cannot be developed in Vietnam at the moment, Qualcomm can't move its 5G facility here, industry observers said.Currently, only the Republic of Korea's Samsung and Taiwan’s TSMC have the technical capabilities to print circuits at the level of sophistication needed for the latest 5G modem.Qualcomm, one of the world’s leading wireless technology firms, is one of many tech giants that have shifted production away from China due to the ongoing trade war between the top two economies.Luxshare-ICT, assembler of Apple's AirPods wireless earphones in Vietnam, has gone on a hiring spree for thousands of new workers.The company opened its first office in Hanoi in 2003 and later in Ho Chi Minh City in 2014.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Powered by ePi Technologies

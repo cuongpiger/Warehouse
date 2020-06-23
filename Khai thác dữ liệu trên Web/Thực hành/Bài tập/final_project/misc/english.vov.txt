@@ -1,0 +1,27 @@
+url
+https://english.vov.vn/
+
+
+
+navi
+nav ul li a
+
+
+
+page
+trang
+
+
+
+nop
+2
+
+
+
+thumb
+article.story h4 a
+
+
+
+detail
+p

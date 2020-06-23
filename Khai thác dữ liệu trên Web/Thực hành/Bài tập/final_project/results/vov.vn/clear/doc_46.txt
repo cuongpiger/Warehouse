@@ -1,0 +1,16 @@
+Vietnam’s four State-owned mobile operators – Viettel, VNPT-Vinaphone, GMobile and MobiFone – have just agreed to share some 1,200 base transceiver stations (BTS), a move that Fitch Solutions said would provide a boost to GMobile as the smallest player of the four.
+The London-based analytics firm said in a statement on June 15 that network sharing is still a relatively new paradigm in Vietnam's telecom market, but network-sharing efforts will accelerate in the country in the near future, as the Government seeks to streamline network deployments and slash capital spending.“Operators have largely pursued the synchronous deployment of their networks, which has led to a significant duplication of infrastructure,” said the firm.The trend is pronounced in densely-populated urban areas, where the rapid construction of mobile masts has also led to safety and environmental concerns from the Government.The Ministry of Information and Communications (MIC) issued a directive in November 2019, which highlighted the need for fixed and mobile operators to coordinate the construction of networks and develop plans to share infrastructure.The sharing of BTS will also allow operators to save on capital expenditures associated with new constructions, which the MIC estimates to be roughly VND1 billion (US$43,000) per BTS.In the 5G era, where networks require a significantly higher number of BTS to operate effectively, network sharing can greatly reduce redundant investments and allow operators to repurpose funds to develop services, which will be the key differentiator in 5G, according to Fitch Solutions.“Operators have previously touted a mid-2020 launch of 5G services, and the network sharing deal, which we believe will involve BTS situated in major population centers, could boost launch prospects,” said the firm.The deal will also prove to be a boon for GMobile, which currently only operates a 2G network. Despite receiving 4G spectrum and licenses in 2016, it appears that the operator has not made any substantial progress in deploying long-term evolution technology.Expressing surprise over this given that GMobile does not have any 3G spectrum, Fitch Solutions said it has instead been relying on offering basic 2G calling, texting and data services at low prices – catered primarily to lower-income and rural subscribers – to gain a market share.This strategy has resulted in it steadily losing ground to its larger rivals, which were able to leverage their scale and capital resources to increase their reach.The analytics firm predicted the network deal could allow GMobile to launch limited 4G or even 5G services, although it will need to achieve a more extensive network-sharing deal if it were to boost its long-term prospects.The new deal is relatively small in scale, with data from the MIC suggesting that as many as 400,000 BTS have been installed by all five mobile operators nationwide.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Powered by ePi Technologies
