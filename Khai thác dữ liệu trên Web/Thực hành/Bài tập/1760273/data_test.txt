@@ -1,0 +1,17 @@
+http://www.laughfactory.com/jokes
+div.jokes-nav ul li a
+
+
+
+http://books.toscrape.com/
+ul.nav-list ul li a
+
+
+
+
+https://vietnamnews.vn/
+ul.vnnews-nav li a
+div.vnnews-big-list-news a,div.vnnews-list-news ul li a
+div.vnnews-text-post p span
+div.vnnews-paging
+?p=
