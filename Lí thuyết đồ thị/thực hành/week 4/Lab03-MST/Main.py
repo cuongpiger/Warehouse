@@ -15,6 +15,6 @@ if __name__ == '__main__':
     # else: time_delay=500
     # runMSTs(input, al, time_delay)
 
-    # runMSTs('MST.txt', 'prim', 0)
-    runMSTs('MST.txt', 'kruskal', 0)
+    runMSTs('MST.txt', 'prim', 0)
+    # runMSTs('MST.txt', 'kruskal', 0)
     

@@ -21,7 +21,7 @@ def preprocess_matrix(ori_matrix):
     matrix = ori_matrix.copy()
     
     for i in range(matrix.shape[0]):
-        matrix[i, :] = matrix[:, i]
+        matrix[i, i:] = matrix[i:, i]
 
     return matrix
 
