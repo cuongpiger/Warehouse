@@ -1,0 +1,12 @@
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\bin\Release\Pacman.exe.config
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\bin\Release\Pacman.exe
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\bin\Release\Pacman.pdb
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\bin\Release\Core.dll
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\bin\Release\Core.pdb
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.csprojResolveAssemblyReference.cache
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.frm_Load.resources
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.frm_Main.resources
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.Properties.Resources.resources
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.csproj.GenerateResource.Cache
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.exe
+C:\Users\Kim Bui\Desktop\15HCB1\Ly Thuyet Do Thi\Seminar\Release\Source code\Pacman\Pacman\obj\Release\Pacman.pdb
