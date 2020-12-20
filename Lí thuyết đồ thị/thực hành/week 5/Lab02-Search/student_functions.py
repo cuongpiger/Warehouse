@@ -75,6 +75,7 @@ def get_path(visited, end_node):
 
 def UCS(matrix, start, end):
     path=[]
+    dist = [1e9] * matrix.shape[0]
     visited={}
     pqueue = PriorityQueue()
 
@@ -82,15 +83,16 @@ def UCS(matrix, start, end):
     pqueue.put((0, start))
 
     while not pqueue.empty():
-        w, u = pqueue.get()
+        w, u = pqueue.get() # w: trọng số, u: đỉnh
 
         if u == end:
             path = get_path(visited, end)
             break
 
         for v in np.where(matrix[u] != 0)[0]:
-            if visited.get(v) == None:
+            if visited.get(v) == None or w + matrix[u, v] < dist[v]:
                 visited[v] = u 
+                dist[v] = w + matrix[u, v]
                 pqueue.put((w + matrix[u, v], v))
 
     print(path)
@@ -103,7 +105,7 @@ def GBFS(matrix, start, end):
     pqueue = PriorityQueue()
 
     visited[start] = -1
-    pqueue.put((0, start))
+    pqueue.put((0, start)) # tuple (trọng số, đỉnh)
 
     while not pqueue.empty():
         u = pqueue.get()[1]
@@ -112,7 +114,7 @@ def GBFS(matrix, start, end):
             path = get_path(visited, end)
             break
 
-        for v in np.where(matrix[u] != 0)[0]:
+        for v in np.where(matrix[u] != 0)[0]: # tuple (ndarray, dtype)
             if visited.get(v) == None:
                 visited[v] = u
                 pqueue.put((matrix[u, v], v))
@@ -122,6 +124,7 @@ def GBFS(matrix, start, end):
 
 def Astar(matrix, start, end, pos):
     path=[]
+    dist = [1e9] * matrix.shape[0]
     visited={}
     pqueue = PriorityQueue()
 
@@ -136,12 +139,13 @@ def Astar(matrix, start, end, pos):
             break
 
         for v in np.where(matrix[u] != 0)[0]:
-            if visited.get(v) == None:
-                new_g = g + matrix[u, v]
-                new_h = np.linalg.norm(pos[end] - pos[v])
-                new_f = new_g + new_h
-                
+            new_g = g + matrix[u, v]
+            new_h = np.linalg.norm(pos[end] - pos[v])
+            new_f = new_g + new_h
+
+            if visited.get(v) == None or new_f < dist[v]:
                 visited[v] = u
+                dist[v] = new_f
                 pqueue.put((new_f, new_g, v))
 
     print(path)
