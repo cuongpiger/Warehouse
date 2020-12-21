@@ -80,6 +80,7 @@ def UCS(matrix, start, end):
     pqueue = PriorityQueue()
 
     visited[start] = -1
+    dist[start] = 0
     pqueue.put((0, start))
 
     while not pqueue.empty():
@@ -90,7 +91,7 @@ def UCS(matrix, start, end):
             break
 
         for v in np.where(matrix[u] != 0)[0]:
-            if visited.get(v) == None or w + matrix[u, v] < dist[v]:
+            if w + matrix[u, v] < dist[v]:
                 visited[v] = u 
                 dist[v] = w + matrix[u, v]
                 pqueue.put((w + matrix[u, v], v))
@@ -129,6 +130,7 @@ def Astar(matrix, start, end, pos):
     pqueue = PriorityQueue()
 
     visited[start] = -1 
+    dist[start] = 0
     pqueue.put((0, 0, start)) # f, g, node
 
     while not pqueue.empty():
@@ -136,7 +138,6 @@ def Astar(matrix, start, end, pos):
 
         if u == end:
             path = get_path(visited, end)
-            break
 
         for v in np.where(matrix[u] != 0)[0]:
             new_g = g + matrix[u, v]
