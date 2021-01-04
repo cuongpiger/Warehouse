@@ -3,7 +3,7 @@
 |**Chức năng**|**Ý nghĩa**|**Cú pháp**|
 |:---:|:---:|:---:|
 |Kiểm tra thông tin|Dùng để hiển thị tất cả thông tin của git trên máy|git config --list|
-|Thiết lập username|Có thể sử dụng username giả, ko cần phải là chỉnh chủ|git confi --global user.username 'username'|
+|Thiết lập username|Có thể sử dụng username giả, ko cần phải là chỉnh chủ|git config --global user.username 'username'|
 |Kiểm tra username|Kiểm tra username đã được thiết lập thành công hay chưa|git config user.username|
 |Thiết lập email|Thiết lập email cho git để khi commit lên không cần phải nhập lại email nữa|git config --global user.email 'email'|
 |Kiểm tra email|Kiểm tra email đã được thiết lập thành công hay chưa|git config user.email|
