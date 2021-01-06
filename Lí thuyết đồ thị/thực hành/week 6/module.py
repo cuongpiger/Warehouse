@@ -60,7 +60,7 @@ def drawGraph(edges, colors_map):
 
 
 
-class WelshPowell:
+class VertexColoring:
     def __init__(self, matrix):
         self.matrix = createMaskMatrix(matrix)
     
@@ -70,37 +70,85 @@ class WelshPowell:
     PARAMETERS:
         [(bậc, đỉnh), (bâc, đỉnh),...]
     """
-    def calculateDegrees(self):
-        return sorted([(sum(line), i) for i, line in enumerate(self.matrix)], reverse=True)
+    def calculateDegrees(self, matrix):
+        return sorted([(sum(line), i) for i, line in enumerate(matrix)], reverse=True)
 
-    def coloring(self):
+    def welshPowell(self):
         n = self.matrix.shape[0] # số lượng node
-        degrees = self.calculateDegrees()
+        degrees = self.calculateDegrees(self.matrix)
         color = 0 # index màu hiện tại
         colored = [-1]*n 
         color_map = {}
-        mark = [False]*n # đánh dấu các node đã dc tô màu
 
-        while sum(mark) != n:
+        while degrees != []:
             _, node = degrees.pop(0)
             
-            if not mark[node]:
-                mark[node] = True
+            if colored[node] == -1:
                 colored[node] = color # đánh dấu index màu dc tô tại node này
                 color_map[color] = [node]
-                strangers = [v for v in np.where(self.matrix[node] == 0)[0] if v != node and not mark[v]] # lấy ra các node ko kề vs `node` và chưa dc tô màu
+                strangers = [v for v in np.where(self.matrix[node] == 0)[0] if v != node and colored[v] == -1] # lấy ra các node ko kề vs `node` và chưa dc tô màu
 
                 for stranger in strangers:
                     flag = len([True for v in np.where(self.matrix[stranger] == 1)[0] if colored[v] == colored[node]]) # kiểm tra trong n~ node kề với `stranger` xem có tồn tại node nào đã dc tô cùng màu vs node `node` hay chưa
 
                     if flag == 0: # nếu `stranger` thỏa
-                        mark[stranger] = True # đánh dấu node này đã dc tô
                         colored[stranger] = color # tô node này bằng giá trị của `color`
                         color_map[color].append(stranger)
 
                 color += 1
 
         return color_map
+        
+
+    def heuristic2(self):
+        n = self.matrix.shape[0]
+        m = self.matrix.copy()
+        colored = np.zeros((n, n), dtype=int) # index dòng là màu, cột là node
+        color_map = {}
+        node = self.calculateDegrees(m)[0][1]
+        mark = [False]*n
+        
+        while sum(mark) != n:
+            color = 0
+            mark[node] = True # đánh dấu `node` đã dc tô màu rồi
+
+            ''' tô màu thấp nhất cho `node` '''
+            for c in range(n):
+                if colored[c, node] == 0:
+                    colored[c, node] = 1
+                    color = c
+                    color_map[color] = True
+
+                    break
+            
+            edges = np.where(m[node] == 1) # lấy ra các node kề với `node`
+            m[node, edges] = 0 # hạ bậc `node` thành 0
+            m[edges, node] = 0 # xóa tất cả các cạnh nối với `node`
+            colored[color, edges] = -1 # cấm tất cả các node kề vs `node` tô màu `color`
+
+            ''' lấy `node` mới '''
+            for _, v in self.calculateDegrees(m):
+                if not mark[v]:
+                    node = v
+                    break
+
+        for c in color_map.keys():
+            color_map[c] = np.where(colored[c] == 1)[0]
+
+        return color_map
+
+
+            
+            
+
+            
+
+
+
+
+
+
+
 
 
 
