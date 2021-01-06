@@ -40,7 +40,6 @@ def createListEdgesFromMatrix(matrix):
     return [(x, y) for x, y in zip(i, j)]
     
 
-
 def drawGraph(edges, colors_map):
     graph = nx.DiGraph()
     graph.add_edges_from([(str(u), str(v)) for u, v in edges])
@@ -59,11 +58,11 @@ def drawGraph(edges, colors_map):
     plt.show()
 
 
-
 class VertexColoring:
     def __init__(self, matrix):
         self.matrix = createMaskMatrix(matrix)
     
+
     """
     DESCRIPTION:
         - Hàm tính toán bậc của các node và sắp xếp giảm dần theo bậc.
@@ -72,6 +71,7 @@ class VertexColoring:
     """
     def calculateDegrees(self, matrix):
         return sorted([(sum(line), i) for i, line in enumerate(matrix)], reverse=True)
+
 
     def welshPowell(self):
         n = self.matrix.shape[0] # số lượng node
@@ -98,7 +98,7 @@ class VertexColoring:
                 color += 1
 
         return color_map
-        
+
 
     def heuristic2(self):
         n = self.matrix.shape[0]
@@ -136,24 +136,3 @@ class VertexColoring:
             color_map[c] = np.where(colored[c] == 1)[0]
 
         return color_map
-
-
-            
-            
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
