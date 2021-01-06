@@ -41,7 +41,7 @@ def createListEdgesFromMatrix(matrix):
     
 
 def drawGraph(edges, colors_map):
-    graph = nx.DiGraph()
+    graph = nx.DiGraph(directed=False)
     graph.add_edges_from([(str(u), str(v)) for u, v in edges])
 
     pos = nx.spring_layout(graph)
@@ -51,9 +51,10 @@ def drawGraph(edges, colors_map):
             node_colors[str(node)] = color
     color_values = [node_colors[node] for node in graph.nodes()]
 
-    nx.draw_networkx_nodes(graph, pos, cmap=plt.get_cmap('jet'), node_color=color_values, node_size=700)
-    nx.draw_networkx_labels(graph, pos)
-    nx.draw_networkx_edges(graph, pos, edgelist=graph.edges(), arrows=False)
+    # nx.draw_networkx_nodes(graph, pos, cmap=plt.get_cmap('jet'), node_color=color_values, node_size=700)
+    # nx.draw_networkx_labels(graph, pos)
+    # nx.draw_networkx_edges(graph, pos, edgelist=graph.edges(), arrows=False)
+    nx.draw_networkx(graph, arrows=False, node_color=color_values, node_size=700, width=2)
 
     plt.show()
 
